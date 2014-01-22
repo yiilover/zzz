@@ -1,0 +1,14 @@
+/**
+* ZhiPHP 值得买模式的海淘网站程序
+* ====================================================================
+* 版权所有 杭州言商网络有限公司，并保留所有权利。
+* 网站地址: http://www.zhiphp.com
+* 交流论坛: http://bbs.pinphp.com
+* --------------------------------------------------------------------
+* 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
+* 使用；不允许对程序代码以任何形式任何目的的再发布。
+* ====================================================================
+* Author: brivio <brivio@qq.com>
+* 授权技术支持: 1142503300@qq.com
+*/
+.ui-resizable{position:relative}.ui-resizable-handle{display:block;position:absolute;font-size:.1px}.ui-resizable-disabled .ui-resizable-handle,.ui-resizable-autohide .ui-resizable-handle{display:none}.ui-resizable-n{left:0;top:-5px;width:100%;height:7px;cursor:n-resize}.ui-resizable-s{left:0;bottom:-5px;width:100%;height:7px;cursor:s-resize}.ui-resizable-e{top:0;right:-5px;width:7px;height:100%;cursor:e-resize}.ui-resizable-w{left:-5px;top:0;width:7px;height:100%;cursor:w-resize}.ui-resizable-se{bottom:1px;right:1px;width:12px;height:12px;cursor:se-resize}.ui-resizable-sw{left:-5px;bottom:-5px;width:9px;height:9px;cursor:sw-resize}.ui-resizable-nw{left:-5px;top:-5px;width:9px;height:9px;cursor:nw-resize}.ui-resizable-ne{top:-5px;right:-5px;width:9px;height:9px;cursor:ne-resize}

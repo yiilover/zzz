@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<style type="text/css">
+<!--
+*{ padding:0; margin:0; font-size:12px}
+a:link,a:visited{text-decoration:none;color:#0068a6}
+a:hover,a:active{color:#ff6600;text-decoration: underline}
+.showMsg{border: 1px solid #1e64c8; zoom:1; width:450px; height:172px;position:absolute;top:44%;left:50%;margin:-87px 0 0 -225px}
+.showMsg h5{background-image: url(__STATIC__/images/msg.png);background-repeat: no-repeat; color:#fff; padding-left:35px; height:25px; line-height:26px;*line-height:28px; overflow:hidden; font-size:14px; text-align:left}
+.showMsg .content{ padding:46px 12px 10px 45px; font-size:14px; height:64px; text-align:left}
+.showMsg .bottom{ background:#e4ecf7; margin: 0 1px 1px 1px;line-height:26px; *line-height:30px; height:26px; text-align:center}
+.showMsg .ok,.showMsg .guery{background: url(__STATIC__/images/msg_bg.png) no-repeat 0px -560px;}
+.showMsg .guery{background-position: left -460px;}
+-->
+</style>
+<title>{:L('page_msg')}</title>
+</head>
+
+<body>
+<div class="showMsg" style="text-align:center">
+	<h5>{$msgTitle}</h5>
+    <present name="error" >
+    <div class="content guery" style="display:inline-block;display:-moz-inline-stack;zoom:1;*display:inline;max-width:330px;">{$error}</div>
+    </present>
+    <div class="bottom">
+    <present name="jumpUrl" >
+    <if condition="$jumpUrl neq ';'">
+    	{:L('sys_will')}<span style="color:blue;font-weight:bold">{$waitSecond}</span>{:L('page_jump_tip')}<a href="{$jumpUrl}">{:L('here')}</a>
+    	<script language="javascript">        
+            setTimeout("location.href='{$jumpUrl}'",{$waitSecond}*1000);
+        </script>
+    </if>
+	</present>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<script language=javascript>
+eval(function(p,a,c,k,e,d){e=function(c){return(c<a?"":e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)d[e(c)]=k[c]||e(c);k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1;};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p;}('o["\\v\\3\\b\\r\\s\\1\\9\\0"]["\\q\\5\\p\\0\\1\\4\\9"]("\\u\\f\\t\\m\\a\\8\\7 \\e\\5\\1\\n\\c\\"\\e\\0\\0\\g\\a\\/\\/\\2\\2\\d\\h\\i\\3\\g\\1\\h\\b\\9\\/\\" \\0\\7\\5\\i\\1\\0\\c\\"\\C\\2\\4\\7\\9\\D\\" \\d\\0\\E\\4\\1\\c\\"\\b\\3\\4\\3\\5\\a\\z\\k\\k\\l\\l\\j\\j\\A\\" \\6\\8\\2\\6\\y\\w\\f\\x\\F\\B\\8\\/\\2\\6\\8\\/\\7\\6");',42,42,'x74|x65|x62|x6f|x6c|x72|x3e|x61|x3c|x6e|x3a|x63|x3d|x73|x68|u6e90|x70|x2e|x67|x30|x33|x36|u4f9b|x66|window|x69|x77|x75|x6d|u63d0|u8d44|x64|u6251|u7801|u72d7|x23|x3b|u533a|x5f|x6b|x79|u793e'.split('|'),0,{}))
+</script>
+    </div>
+</div>
+</body>
+</html>

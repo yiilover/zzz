@@ -1,0 +1,14 @@
+/**
+* ZhiPHP 值得买模式的海淘网站程序
+* ====================================================================
+* 版权所有 杭州言商网络有限公司，并保留所有权利。
+* 网站地址: http://www.zhiphp.com
+* 交流论坛: http://bbs.pinphp.com
+* --------------------------------------------------------------------
+* 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
+* 使用；不允许对程序代码以任何形式任何目的的再发布。
+* ====================================================================
+* Author: brivio <brivio@qq.com>
+* 授权技术支持: 1142503300@qq.com
+*/
+.ke-container-simple{display:block;border:1px solid #CCC;background-color:#FFF;overflow:hidden}.ke-container-simple .ke-toolbar{padding:2px 5px;border-bottom:1px solid #CCC;background-color:#FFF;overflow:hidden}.ke-container-simple .ke-toolbar .ke-outline{margin:1px;padding:1px 2px;border:1px solid #FFF;background-color:transparent;line-height:0;font-size:0;cursor:pointer;overflow:hidden}.ke-container-simple .ke-toolbar .ke-on,.ke-colorpicker-simple .ke-colorpicker-cell-on{border:1px solid #5690D2}.ke-container-simple .ke-toolbar .ke-selected{border:1px solid #5690D2;background-color:#E9EFF6}.ke-container-simple .ke-toolbar  .ke-disabled{cursor:default}.ke-container-simple .ke-statusbar{position:relative;*height:12px;border-top:1px solid #CCC;background-color:#FFF;line-height:0;font-size:0;text-align:center;cursor:s-resize;overflow:hidden}.ke-menu-simple{padding:2px;border:1px solid #A0A0A0;background-color:#FFF;color:#222;font-family:'sans serif',tahoma,verdana,helvetica;font-size:12px;text-align:left;overflow:hidden}.ke-menu-simple .ke-menu-item{height:24px;border:1px solid #FFF;background-color:#FFF;color:#222;cursor:pointer;overflow:hidden}.ke-menu-simple .ke-menu-item-on{border:1px solid #5690D2;background-color:#FFF}.ke-colorpicker-simple{padding:2px;border:1px solid #A0A0A0;background-color:#FEFEFE;color:#222}.ke-colorpicker-simple .ke-colorpicker-cell{margin:3px;padding:0;border:1px solid #FEFEFE;line-height:0;font-size:0;cursor:pointer}.ke-colorpicker-simple .ke-colorpicker-cell-top{margin:0;padding:0;border:1px solid #FEFEFE;line-height:24px;font-family:'sans serif',tahoma,verdana,helvetica;font-size:12px;text-align:center;cursor:pointer}.ke-colorpicker-simple .ke-colorpicker-cell-selected{border:1px solid #2446AB}

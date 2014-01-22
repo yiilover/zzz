@@ -1,0 +1,14 @@
+/**
+* ZhiPHP 值得买模式的海淘网站程序
+* ====================================================================
+* 版权所有 杭州言商网络有限公司，并保留所有权利。
+* 网站地址: http://www.zhiphp.com
+* 交流论坛: http://bbs.pinphp.com
+* --------------------------------------------------------------------
+* 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
+* 使用；不允许对程序代码以任何形式任何目的的再发布。
+* ====================================================================
+* Author: brivio <brivio@qq.com>
+* 授权技术支持: 1142503300@qq.com
+*/
+.ui-dialog{position:absolute;left:0;top:0;padding:.2em;outline:0}.ui-dialog .ui-dialog-titlebar{position:relative;padding:.4em 1em}.ui-dialog .ui-dialog-title{float:left;width:90%;margin:.1em 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.ui-dialog .ui-dialog-titlebar-close{position:absolute;top:50%;right:.3em;width:21px;height:20px;margin:-10px 0 0;padding:1px}.ui-dialog .ui-dialog-content{position:relative;padding:.5em 1em;border:0;background:none;overflow:auto}.ui-dialog .ui-dialog-buttonpane{margin-top:.5em;padding:.3em 1em .5em .4em;border-width:1px 0 0 0;background-image:none;text-align:left}.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset{float:right}.ui-dialog .ui-dialog-buttonpane button{margin:.5em .4em .5em 0;cursor:pointer}.ui-dialog .ui-resizable-se{bottom:-5px;right:-5px;width:12px;height:12px;background-position:16px 16px}.ui-draggable .ui-dialog-titlebar{cursor:move}
