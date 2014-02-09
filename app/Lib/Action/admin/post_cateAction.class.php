@@ -13,6 +13,7 @@
 * 授权技术支持: 1142503300@qq.com
 */
 class post_cateAction extends backendAction {
+
     public function _initialize() {
         parent::_initialize();
     }
@@ -104,5 +105,8 @@ class post_cateAction extends backendAction {
         $id=intval($_REQUEST['id']);
         $ids=get_child_ids($this->_mod,$id);        
         $this->_mod->where("id in($ids)")->delete();         
+    }
+    public function _before_upload() {
+
     }
 }

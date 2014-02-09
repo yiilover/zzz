@@ -354,6 +354,10 @@ class backendAction extends baseAction {
         $this->assign('p', $p);
         $this->assign('jump_url',$jump_url);
         $this->display("public:".ACTION_NAME);
-    }    
+    }
+    public function upload() {
+        $mod = D($this->_name);
+        $this->display();
+    }
 }
 ?>
