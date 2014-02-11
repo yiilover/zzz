@@ -356,8 +356,17 @@ class backendAction extends baseAction {
         $this->display("public:".ACTION_NAME);
     }
     public function upload() {
-        $mod = D($this->_name);
         $this->display();
     }
+
+    public function upload_cate(){
+
+    }
+
+    public function  upload_cate2(){
+
+    }
+
+
 }
 ?>

@@ -109,4 +109,52 @@ class post_cateAction extends backendAction {
     public function _before_upload() {
 
     }
+
+    public function _before_upload_cate() {
+        $mod = D($this->_name);
+        $mod->create();
+        require_once(APP_PATH .'Lib/Action/admin/Excel/reader.php');
+        $data = new Spreadsheet_Excel_Reader();
+        $data->setOutputEncoding('UTF-8');
+        $data->read($_FILES['file']['tmp_name']);
+        $id = 1000;
+        for ($i = 1; $i <= $data->sheets[0]['numRows']; $i++) {
+            if($i==1) continue;
+            for ($j = 1; $j <= $data->sheets[0]['numCols']; $j++) {
+                $arr[$i]['id'] = $id;
+                $arr[$i]['name'] = $data->sheets[0]['cells'][$i][5];
+                $arr[$i]['pid'] = 1;
+                $arr[$i]['status'] = 1;
+            }
+            $mod->add($arr[$i]);
+            $id++;
+        }
+//        echo "<pre>";
+//        print_r($arr);die;
+    }
+
+    public function _before_upload_cate2() {
+        $mod = D($this->_name);
+        $mod->create();
+        require_once(APP_PATH .'Lib/Action/admin/Excel/reader.php');
+        $data = new Spreadsheet_Excel_Reader();
+        $data->setOutputEncoding('UTF-8');
+        $data->read($_FILES['file']['tmp_name']);
+        for ($i = 1; $i <= $data->sheets[0]['numRows']; $i++) {
+            if($i==1) continue;
+            for ($j = 1; $j <= $data->sheets[0]['numCols']; $j++) {
+                $arr[$i]['id'] = $data->sheets[0]['cells'][$i][5];
+                $arr[$i]['name'] = $data->sheets[0]['cells'][$i][4];
+                $arr[$i]['pid'] = $this->get_pid_by_pname($data->sheets[0]['cells'][$i][6]);
+                $arr[$i]['status'] = 1;
+            }
+            $mod->add($arr[$i]);
+        }
+    }
+
+    protected function get_pid_by_pname($pname){
+        $mod = D($this->_name);
+        $r = $mod->where("name='$pname'")->find();
+        return $r['id'];
+    }
 }

@@ -1,14 +1,20 @@
 <include file="public:header" />
 <div class="pad_10" >
     <table width="100%" >
-        <tr>
-            <td align="center" style="width:150px">一级分类上传：</td>
-            <td><input type="file" style="width:200px;" class="input-text" name="cate"></td>
-        </tr>
-        <tr>
-            <td align="center" style="width:150px">二级分类上传：</td>
-            <td><input type="file" style="width:200px;" class="input-text" name="cate2"></td>
-        </tr>
+        <form action="/index.php?g=admin&m=post_cate&a=upload_cate" method="post" enctype="multipart/form-data">
+            <tr>
+                <td align="center" style="width:150px">一级分类上传：</td>
+                <td align="center" style="width:200px;"><input type="file"  class="input-text" name="file"></td>
+                <td><input name="submit" type="submit"  id="submit" value="上传" class="button" /></td>
+            </tr>
+        </form>
+        <form action="/index.php?g=admin&m=post_cate&a=upload_cate2" method="post" enctype="multipart/form-data">
+            <tr>
+                <td align="center" style="width:150px">二级分类上传：</td>
+                <td align="center" style="width:200px;"><input type="file"  class="input-text" name="file"></td>
+                <td><input name="submit" type="submit"  id="submit" value="上传" class="button" /></td>
+            </tr>
+        </form>
     </table>
 </div>
 <include file="public:footer" />
