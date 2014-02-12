@@ -367,6 +367,8 @@ class backendAction extends baseAction {
 
     }
 
+    public function  upload_post(){
 
+    }
 }
 ?>
