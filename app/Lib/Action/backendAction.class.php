@@ -370,5 +370,17 @@ class backendAction extends baseAction {
     public function  upload_post(){
 
     }
+
+    public function  upload_post_cate_re(){
+
+    }
+
+    public function  upload_post_tag(){
+
+    }
+
+    public function  upload_tag(){
+
+    }
 }
 ?>

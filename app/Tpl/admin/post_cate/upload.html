@@ -22,6 +22,27 @@
                 <td><input name="submit" type="submit"  id="submit" value="上传" class="button" /></td>
             </tr>
         </form>
+        <form action="/index.php?g=admin&m=post_cate&a=upload_post_cate_re" method="post" enctype="multipart/form-data">
+            <tr>
+                <td align="center" style="width:150px">扩展分类上传：</td>
+                <td align="center" style="width:200px;"><input type="file"  class="input-text" name="file"></td>
+                <td><input name="submit" type="submit"  id="submit" value="上传" class="button" /></td>
+            </tr>
+        </form>
+        <form action="/index.php?g=admin&m=post_cate&a=upload_post_tag" method="post" enctype="multipart/form-data">
+            <tr>
+                <td align="center" style="width:150px">post_tag上传：</td>
+                <td align="center" style="width:200px;"><input type="file"  class="input-text" name="file"></td>
+                <td><input name="submit" type="submit"  id="submit" value="上传" class="button" /></td>
+            </tr>
+        </form>
+        <form action="/index.php?g=admin&m=post_cate&a=upload_tag" method="post" enctype="multipart/form-data">
+            <tr>
+                <td align="center" style="width:150px">tag上传：</td>
+                <td align="center" style="width:200px;"><input type="file"  class="input-text" name="file"></td>
+                <td><input name="submit" type="submit"  id="submit" value="上传" class="button" /></td>
+            </tr>
+        </form>
     </table>
 </div>
 <include file="public:footer" />

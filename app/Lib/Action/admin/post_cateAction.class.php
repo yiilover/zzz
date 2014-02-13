@@ -155,7 +155,6 @@ class post_cateAction extends backendAction {
     public function _before_upload_post() {
         $mod = D('post');
         $mod->create();
-//        var_dump($mod);die;
         require_once(APP_PATH .'Lib/Action/admin/Excel/reader.php');
         $data = new Spreadsheet_Excel_Reader();
         $data->setOutputEncoding('UTF-8');
@@ -190,13 +189,69 @@ class post_cateAction extends backendAction {
                 $arr[$i]['status'] = 1;
                 $arr[$i]['collect_flag'] = 1;
             }
-
             $mod->add($arr[$i]);
         }
+    }
 
-        //$this->ajaxReturn(1, L('operation_success'));
-//        echo "<pre>";
-//        print_r($arr);die;
+
+    public function _before_upload_post_cate_re() {
+        $mod = D('post_cate_re');
+        $mod->create();
+        require_once(APP_PATH .'Lib/Action/admin/Excel/reader.php');
+        $data = new Spreadsheet_Excel_Reader();
+        $data->setOutputEncoding('UTF-8');
+        $data->read($_FILES['file']['tmp_name']);
+        for ($i = 1; $i <= $data->sheets[0]['numRows']; $i++) {
+            if($i==1) continue;
+            $id = $data->sheets[0]['cells'][$i][4];
+            $cid = $data->sheets[0]['cells'][$i][5];
+            if(empty($cid)) continue;
+            for ($j = 1; $j <= $data->sheets[0]['numCols']; $j++) {
+                $arr[$i]['post_id'] = $id;
+                $arr[$i]['cate_id'] = $cid;
+            }
+            $mod->add($arr[$i]);
+        }
+    }
+
+    public function _before_upload_post_tag() {
+        $mod = D('post_tag');
+        $mod->create();
+        require_once(APP_PATH .'Lib/Action/admin/Excel/reader.php');
+        $data = new Spreadsheet_Excel_Reader();
+        $data->setOutputEncoding('UTF-8');
+        $data->read($_FILES['file']['tmp_name']);
+        for ($i = 1; $i <= $data->sheets[0]['numRows']; $i++) {
+            if($i==1) continue;
+            $id = $data->sheets[0]['cells'][$i][4];
+            $tid = $data->sheets[0]['cells'][$i][5];
+            if(empty($tid)) continue;
+            for ($j = 1; $j <= $data->sheets[0]['numCols']; $j++) {
+                $arr[$i]['post_id'] = $id;
+                $arr[$i]['tag_id'] = $tid;
+            }
+            $mod->add($arr[$i]);
+        }
+    }
+
+    public function _before_upload_tag() {
+        $mod = D('tag');
+        $mod->create();
+        require_once(APP_PATH .'Lib/Action/admin/Excel/reader.php');
+        $data = new Spreadsheet_Excel_Reader();
+        $data->setOutputEncoding('UTF-8');
+        $data->read($_FILES['file']['tmp_name']);
+        for ($i = 1; $i <= $data->sheets[0]['numRows']; $i++) {
+            if($i==1) continue;
+            $id = $data->sheets[0]['cells'][$i][5];
+            $name = $data->sheets[0]['cells'][$i][6];
+            if(empty($id)) continue;
+            for ($j = 1; $j <= $data->sheets[0]['numCols']; $j++) {
+                $arr[$i]['id'] = $id;
+                $arr[$i]['name'] = $name;
+            }
+            $mod->add($arr[$i]);
+        }
     }
 
     protected function get_pid_by_pname($pname){
