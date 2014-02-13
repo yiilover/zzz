@@ -382,5 +382,22 @@ class backendAction extends baseAction {
     public function  upload_tag(){
 
     }
+
+    public function  upload_mall_cate(){
+
+    }
+
+    public function  upload_mall_cate2(){
+
+    }
+
+    public function  upload_mall(){
+
+    }
+
+    public function  upload_mall_comment(){
+
+    }
+
 }
 ?>

@@ -254,6 +254,39 @@ class post_cateAction extends backendAction {
         }
     }
 
+    public function  _before_upload_mall_cate(){
+        $mod = D('mall_cate');
+        $mod->create();
+        require_once(APP_PATH .'Lib/Action/admin/Excel/reader.php');
+        $data = new Spreadsheet_Excel_Reader();
+        $data->setOutputEncoding('UTF-8');
+        $data->read($_FILES['file']['tmp_name']);
+        for ($i = 1; $i <= $data->sheets[0]['numRows']; $i++) {
+            if($i==1) continue;
+            $id = $data->sheets[0]['cells'][$i][5];
+            $name = $data->sheets[0]['cells'][$i][6];
+            if(empty($id)) continue;
+            for ($j = 1; $j <= $data->sheets[0]['numCols']; $j++) {
+                $arr[$i]['id'] = $id;
+                $arr[$i]['name'] = $name;
+            }
+            $mod->add($arr[$i]);
+        }
+    }
+
+    public function  _before_upload_mall_cate2(){
+
+    }
+
+    public function  _before_upload_mall(){
+
+    }
+
+    public function  _before_upload_mall_comment(){
+
+    }
+
+
     protected function get_pid_by_pname($pname){
         $r = D($this->_name)->where("name='$pname'")->find();
         return $r['id'];
