@@ -291,17 +291,22 @@ class post_cateAction extends backendAction {
             $email = $data->sheets[0]['cells'][$i][8];
             $tel = $data->sheets[0]['cells'][$i][9];
             $addr = $data->sheets[0]['cells'][$i][10];
-
-
+            $aid = $data->sheets[0]['cells'][$i][11];
             for ($j = 1; $j <= $data->sheets[0]['numCols']; $j++) {
-                $arr[$i]['id'] = $title;
+                $arr[$i]['title'] = $title;
                 $arr[$i]['img'] = $img;
                 $arr[$i]['domain'] = $domain;
-                $arr[$i]['abst'] = $abst;
+                $arr[$i]['email'] = $email;
+                $arr[$i]['tel'] = $tel;
+                $arr[$i]['addr'] = $addr;
+                $arr[$i]['aid'] = $aid;
+                $arr[$i]['add_time'] = time();
             }
-            $mod->add($arr[$i]);
+//            $mod->add($arr[$i]);
         }
-    }
+        echo "<pre>";
+        print_r($arr);die;
+}
 
     public function  _before_upload_mall_comment(){
 
