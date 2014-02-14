@@ -275,7 +275,32 @@ class post_cateAction extends backendAction {
     }
 
     public function  _before_upload_mall(){
+        $mod = D('mall');
+        $mod->create();
+        require_once(APP_PATH .'Lib/Action/admin/Excel/reader.php');
+        $data = new Spreadsheet_Excel_Reader();
+        $data->setOutputEncoding('UTF-8');
+        $data->read($_FILES['file']['tmp_name']);
+        $img = $data->sheets[0]['cells'][$i][5];
+        for ($i = 1; $i <= $data->sheets[0]['numRows']; $i++) {
+            if($i==1) continue;
+            $title = $data->sheets[0]['cells'][$i][4];
+            $img = $data->sheets[0]['cells'][$i][5];
+            $domain = $data->sheets[0]['cells'][$i][6];
+            $abst = $data->sheets[0]['cells'][$i][7];
+            $email = $data->sheets[0]['cells'][$i][8];
+            $tel = $data->sheets[0]['cells'][$i][9];
+            $addr = $data->sheets[0]['cells'][$i][10];
 
+
+            for ($j = 1; $j <= $data->sheets[0]['numCols']; $j++) {
+                $arr[$i]['id'] = $title;
+                $arr[$i]['img'] = $img;
+                $arr[$i]['domain'] = $domain;
+                $arr[$i]['abst'] = $abst;
+            }
+            $mod->add($arr[$i]);
+        }
     }
 
     public function  _before_upload_mall_comment(){
