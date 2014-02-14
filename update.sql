@@ -11,3 +11,8 @@ alter table zhi_mall add email varchar(255) not null default '';
 alter table zhi_mall add tel varchar(255) not null default '';
 alter table zhi_mall add addr varchar(255) not null default '';
 
+CREATE TABLE `zhi_mall_cate_re` (
+  `mall_id` int(10) NOT NULL,
+  `cate_id` smallint(4) NOT NULL,
+  UNIQUE KEY `mall_id` (`mall_id`,`cate_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8

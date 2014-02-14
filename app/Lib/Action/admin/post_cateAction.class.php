@@ -274,6 +274,26 @@ class post_cateAction extends backendAction {
         }
     }
 
+    public function  _before_upload_mall_cate_re(){
+        $mod = D('mall_cate_re');
+        $mod->create();
+        require_once(APP_PATH .'Lib/Action/admin/Excel/reader.php');
+        $data = new Spreadsheet_Excel_Reader();
+        $data->setOutputEncoding('UTF-8');
+        $data->read($_FILES['file']['tmp_name']);
+        for ($i = 1; $i <= $data->sheets[0]['numRows']; $i++) {
+            if($i==1) continue;
+            $id = $data->sheets[0]['cells'][$i][4];
+            $cid = $data->sheets[0]['cells'][$i][5];
+            if(empty($cid)) continue;
+            for ($j = 1; $j <= $data->sheets[0]['numCols']; $j++) {
+                $arr[$i]['mall_id'] = $id;
+                $arr[$i]['cate_id'] = $cid;
+            }
+            $mod->add($arr[$i]);
+        }
+    }
+
     public function  _before_upload_mall(){
         $mod = D('mall');
         $mod->create();
@@ -281,7 +301,6 @@ class post_cateAction extends backendAction {
         $data = new Spreadsheet_Excel_Reader();
         $data->setOutputEncoding('UTF-8');
         $data->read($_FILES['file']['tmp_name']);
-        $img = $data->sheets[0]['cells'][$i][5];
         for ($i = 1; $i <= $data->sheets[0]['numRows']; $i++) {
             if($i==1) continue;
             $title = $data->sheets[0]['cells'][$i][4];
@@ -297,6 +316,7 @@ class post_cateAction extends backendAction {
                 $arr[$i]['title'] = $title;
                 $arr[$i]['img'] = $img;
                 $arr[$i]['domain'] = $domain;
+                $arr[$i]['abst'] = $abst;
                 $arr[$i]['email'] = $email;
                 $arr[$i]['tel'] = $tel;
                 $arr[$i]['addr'] = $addr;
@@ -305,9 +325,7 @@ class post_cateAction extends backendAction {
             }
             $mod->add($arr[$i]);
         }
-//        echo "<pre>";
-//        print_r($arr);die;
-}
+    }
 
     public function  _before_upload_mall_comment(){
 
