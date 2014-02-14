@@ -274,10 +274,6 @@ class post_cateAction extends backendAction {
         }
     }
 
-    public function  _before_upload_mall_cate2(){
-
-    }
-
     public function  _before_upload_mall(){
 
     }

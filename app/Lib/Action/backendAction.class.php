@@ -387,10 +387,6 @@ class backendAction extends baseAction {
 
     }
 
-    public function  upload_mall_cate2(){
-
-    }
-
     public function  upload_mall(){
 
     }
