@@ -20,7 +20,7 @@
                             <div class="leftNotice">
                                 <h3><a href="{:item_rewrite($val,'post')}" target="_blank">{$val.title}</a><span>{$val.prices}</span></h3>
                             </div>
-                            </volist>                        
+                            </volist>
                         </if>
                         <!--产品展示方式开始-->
                         <div class="product_show" <if condition="C('pin_index_wall')">id="J_waterfall" data-uri="__ROOT__/index.php?m={:MODULE_NAME}&a=index&sort={$sort}&p={$p}&keyword={$search.keyword}"</if> >
@@ -40,11 +40,11 @@
         </div>
         <div class="contentbox_r fr">
             <div class="rightinfo" id="rightinfo" style="height: 2000px;">
-                <include file="public:find" />           
+                <include file="public:find" />
             </div>
         </div>
     </div>
     </div>
     <!--主部结束-->
-</div>	
+</div>
 <include file="public:footer" />

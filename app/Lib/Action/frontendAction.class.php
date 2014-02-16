@@ -34,7 +34,16 @@ class frontendAction extends baseAction {
         $this->_init_visitor();
         $this->_assign_oauth();
         $this->assign('nav_curr', '');
-        $this->assign('recommend_cate', D("post_cate")->where("pid=1 and status=1")->select());
+        $cate1 = D("post_cate")->where("pid=1 and status=1")->select();
+        foreach($cate1 as $r){
+            $id = $r['id'];
+            $cate[] = array(
+                'id' => $id,
+                'name' => $r['name'],
+                'son' => D("post_cate")->where("pid={$id} and status=1")->select()
+            );
+        }
+        $this->assign('recommend_cate', $cate);
         $this->assign('tese_cate', D("post_cate")->where("pid=2 and status=1")->select());
         $this->assign('main_nav_list', D("nav")->where("type='main' and status=1 and homepage=0")->order('ordid')->select());
         $this->assign('bottom_nav_list', D("nav")->where("type='bottom' and status=1")->order('ordid')->select());

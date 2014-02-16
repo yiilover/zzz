@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    {:C('pin_head_meta')} 
+    {:C('pin_head_meta')}
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <load href="__STATIC__/js/jquery/jquery.js" />
     <load href="__ASSETS__/css/base.css" />
@@ -9,10 +9,10 @@
     <load href="__ASSETS__/js/common.js" />
     <load href="__STATIC__/js/common.js" />
     <load href="__STATIC__/js/jquery/plugins/jquery.cookie.js" />
-    <title>{$page_seo.title}</title>    
+    <title>{$page_seo.title}</title>
     <meta name="keywords" content="{$page_seo.keywords}" />
-    <meta name="description" content="{$page_seo.description}" />       
-    <script src="__ROOT__/index.php?m={:MODULE_NAME}&a={:ACTION_NAME}&act=loadjs"></script>  
+    <meta name="description" content="{$page_seo.description}" />
+    <script src="__ROOT__/index.php?m={:MODULE_NAME}&a={:ACTION_NAME}&act=loadjs"></script>
 </head>
 <body>
 <!--头部开始-->
@@ -32,7 +32,7 @@
                         </volist>
 					</ul>
 				</div>
-            </div>                
+            </div>
             <else/>
             <div class="login" id="yetlogin">
                 <span>{$visitor.username}欢迎您！</span>|
@@ -42,15 +42,15 @@
             </if>
 			<div class="topRightShare">
                 <include file="public:baidu_share" />
-            </div>			
-			<div class="menutop"> 
+            </div>
+			<div class="menutop">
             	<ul>
 					<li><a href="{:u('mall/index')}" target="_blank">商家导航</a>|</li>
 					<li><a href="{:u('post/submit')}" target="_blank">我要爆料</a></li>
-				</ul> 
-			</div>			
+				</ul>
+			</div>
 		</div>
-	</div>	
+	</div>
 	<!--推荐类别开始-->
 	<div class="sidebox">
 		<div class="side_head"><h3><a href="{:u('post_cate/index',array('id'=>1))}">推荐类别</a></h3></div>
@@ -64,7 +64,7 @@
 		<div class="side_foot"></div>
 	</div>
 	<!--推荐类别结束-->
-	
+
 </div>
 <div class="main_content" style="padding-bottom: 0px;">
 <div id="main" style="z-index:50;">
@@ -96,8 +96,8 @@
                         </ul>
                     </li>
                     <volist name="main_nav_list" id="val">
-                        <li class="{$val.alias}">                            
-                            <a class="navicon" 
+                        <li class="{$val.alias}">
+                            <a class="navicon"
                             <if condition="strstr(trim($val['link']),'index.php')">
                                 href="{:U($val['link'])}"
                             <else/>

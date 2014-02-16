@@ -1,43 +1,570 @@
 <include file="public:header" />
 
-<!--内容页开始-->
-<div class="main_content">
-    <!--主部开始-->
-    <div id="main">
-        <div class="contentbox clearfix">
-            <div class="w668 fl">
-                {:R('advert/index', array(1), 'Widget')}
-                <if condition="$search['keyword']">
-                    <div class="clearfix crumbBox">当前位置:<a href="__ROOT__/">首页</a>>><strong>"{$search.keyword}"</strong>的搜索结果</div>
-                </if>
-                <div class="showinfo">
-                    <if condition="empty($search['keyword'])">
-                        <include file="public:hot_activity" />
-                        <div class="sticky mb10">
-                            <volist name="recommend_list" id="val">
-        				    <h2><b>置顶 »</b> <a href="{:item_rewrite($val,'post')}" target="_blank">{$val.title}</a></h2>
-                            </volist> 
-        				</div>                               
-                    </if>
-                    <!--产品展示方式开始-->
-                    <div class="product_show" <if condition="C('pin_index_wall')">id="J_waterfall" data-uri="__ROOT__/index.php?m={:MODULE_NAME}&a=index&sort={$sort}&p={$p}&keyword={$search.keyword}"</if> >        
-                        <include file="public:ajax_post_list" />
-                    </div>
-                    <present name="show_load">
-                    <div id="J_wall_loading" class="wall_loading tc gray"><span>{:L('loading')}</span></div>
-                    </present>
-                    <present name="page_bar">
-                    <div id="J_wall_page" class="wall_page" <present name="show_page">style="display:block;"</present>>
-                        <div class="page">{$page_bar}</div>
-                    </div>
-                    </present>
-                </div>                
+<div class="main_wrap">
+<pw-tpl id="main_segment"/>
+<pw-tpl id="threadTop_segment"/>
+<div class="main cc">
+<div class="main_body">
+<div class="zdm-wrap">
+<pw-tpl id="first_segment"/>
+<div class="box_wrap">
+    <div class="home-products">
+        <h3>爆款推荐</h3>
+        <div class="home-pr" id="swipe">
+            <span class="previous"></span>
+            <div class="wrapper">
+                <ul>
+                    <li>
+                        <a href="http://www.wadongxi.com/read/1477">
+                            <img alt="双节不打烊 - 汤圆将邂逅玫瑰" src="http://img.wadongxi.com/attachment/zdm/201401/6c0ef24fc8cc469.jpg" />
+                            <span class="home-pr-list-t">双节不打烊 - 汤圆将邂逅玫瑰</span>
+                            <span class="home-pr-list-p">劲爆5折</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.wadongxi.com/read/1118">
+                            <img alt="富士宝对流式电暖器" src="http://img.wadongxi.com/attachment/zdm/201401/fd2d30c0403c6e2.jpg" />
+                            <span class="home-pr-list-t">富士宝对流式电暖器</span>
+                            <span class="home-pr-list-p">折扣价108元多数地区包邮</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.wadongxi.com/read/1117">
+                            <img alt="黑胡椒黄油曲奇饼干罐装130g" src="http://img.wadongxi.com/attachment/zdm/201401/614f3319da5aa4f.jpg" />
+                            <span class="home-pr-list-t">黑胡椒黄油曲奇饼干罐装130g</span>
+                            <span class="home-pr-list-p">秒杀价9.9元多数地区包邮</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.wadongxi.com/read/1096">
+                            <img alt="LG 60PN650H 60英寸 等离子电视（黑色）" src="http://img.wadongxi.com/attachment/zdm/201401/e70ec2a360237f4.jpg" />
+                            <span class="home-pr-list-t">LG 60PN650H 60英寸 等离子电视（黑色）</span>
+                            <span class="home-pr-list-p">5399元包邮</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.wadongxi.com/read/1087">
+                            <img alt="努比亚 (nubia）小牛2 Z5S mini 3G手机(前黑后白） WCDMA/TD-SCDMA/EVDO" src="http://img.wadongxi.com/attachment/zdm/201401/312e58f2708438e.png" />
+                            <span class="home-pr-list-t">努比亚 (nubia）小牛2 Z5S mini 3G手机(前黑后白） WCDMA/TD-SCDMA/EVDO</span>
+                            <span class="home-pr-list-p">1499元包邮（可用劵）</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.wadongxi.com/read/797">
+                            <img alt="天谱乐食Tender Plus 澳洲120天谷饲西冷牛排 200g" src="http://img.wadongxi.com/attachment/zdm/201401/d318eab81916732.png" />
+                            <span class="home-pr-list-t">天谱乐食Tender Plus 澳洲120天谷饲西冷牛排 200g</span>
+                            <span class="home-pr-list-p">29.9元</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.wadongxi.com/read/753">
+                            <img alt="全网底价 Luminarc 乐美雅 G9470 品位香槟杯 16cl 2件套" src="http://img.wadongxi.com/attachment/zdm/201401/47c466d7fb2927e.jpg" />
+                            <span class="home-pr-list-t">全网底价 Luminarc 乐美雅 G9470 品位香槟杯 16cl 2件套</span>
+                            <span class="home-pr-list-p">19.9元包邮</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.wadongxi.com/read/605">
+                            <img alt="星马 合金遥控直升飞机 3.5通道带陀螺仪(机身23cm)" src="http://img.wadongxi.com/attachment/zdm/201401/3e755089585cfe4.jpg" />
+                            <span class="home-pr-list-t">星马 合金遥控直升飞机 3.5通道带陀螺仪(机身23cm)</span>
+                            <span class="home-pr-list-p">30元包邮</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.wadongxi.com/read/473">
+                            <img alt="李施德林漱口水冰蓝口味500ml双包装" src="http://img.wadongxi.com/attachment/zdm/201401/5a13c26d1f20489.jpg" />
+                            <span class="home-pr-list-t">李施德林漱口水冰蓝口味500ml双包装</span>
+                            <span class="home-pr-list-p">26.4元包邮</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.wadongxi.com/read/451">
+                            <img alt="飘柔菁纯焗油精华露30ml" src="http://img.wadongxi.com/attachment/zdm/201401/b07f6ed99ae5a28.jpg" />
+                            <span class="home-pr-list-t">飘柔菁纯焗油精华露30ml</span>
+                            <span class="home-pr-list-p">8元包邮（5折）</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.wadongxi.com/read/409">
+                            <img alt="Fisher Price 费雪 多功能轻便摇椅 P0107" src="http://img.wadongxi.com/attachment/zdm/201401/c7bde4d2a070894.png" />
+                            <span class="home-pr-list-t">Fisher Price 费雪 多功能轻便摇椅 P0107</span>
+                            <span class="home-pr-list-p">276.7包邮（336.7-60）</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.wadongxi.com/read/401">
+                            <img alt="德国进口Bahlsen莱布尼兹动物型饼干 125g" src="http://img.wadongxi.com/attachment/zdm/201401/8f466d68b02b5f8.jpg" />
+                            <span class="home-pr-list-t">德国进口Bahlsen莱布尼兹动物型饼干 125g</span>
+                            <span class="home-pr-list-p">23.9包邮（买一送一）</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
-            <div class="w300 fr">
-                <include file="public:find" />                
-            </div>
+            <span class="next"></span>
         </div>
     </div>
-    <!--主部结束-->
-</div>	
-<include file="public:footer" />
+    <div class="home-brand">
+        <h3>今日推荐店铺</h3>
+        <div class="home-bd" id="swipe2">
+            <span class="previous"></span>
+            <div class="wrapper">
+                <ul>
+                    <li>
+                        <a href="http://www.wadongxi.com/shop/8373">
+                            <img src="http://img.wadongxi.com/attachment/shoplogo/73/e5/ab8b03c57362ae5.jpg" alt="粉红大布娃娃旗舰店" />
+                            <span>粉红大布娃娃旗舰店</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.wadongxi.com/shop/37354">
+                            <img src="http://img.wadongxi.com/attachment/shoplogo/54/d1/22618f2f71e54d1.jpg" alt="artka官方旗舰店" />
+                            <span>artka官方旗舰店</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.wadongxi.com/shop/37311">
+                            <img src="http://img.wadongxi.com/attachment/shoplogo/11/77/bae9ff9126abc77.jpg" alt="茵曼旗舰店" />
+                            <span>茵曼旗舰店</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.wadongxi.com/shop/9110">
+                            <img src="http://img.wadongxi.com/attachment/shoplogo/10/69/8b902ad0d130869.jpg" alt="初语旗舰店" />
+                            <span>初语旗舰店</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.wadongxi.com/shop/31460">
+                            <img src="http://img.wadongxi.com/attachment/shoplogo/60/10/0bd046fdc07bd10.jpg" alt="三只松鼠旗舰店" />
+                            <span>三只松鼠旗舰店</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.wadongxi.com/shop/13550">
+                            <img src="http://img.wadongxi.com/attachment/shoplogo/50/9f/1a64bca5467ee9f.jpg" alt="温碧泉旗舰店" />
+                            <span>温碧泉旗舰店</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.wadongxi.com/shop/37358">
+                            <img src="http://img.wadongxi.com/attachment/shoplogo/58/87/66338710f025d87.jpg" alt="妖精的口袋旗舰店" />
+                            <span>妖精的口袋旗舰店</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.wadongxi.com/shop/229097">
+                            <img src="http://img.wadongxi.com/attachment/shoplogo/97/59/d2e756aa3218c59.jpg" alt="太平鸟男装旗舰店" />
+                            <span>太平鸟男装旗舰店</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.wadongxi.com/shop/987982">
+                            <img src="http://img.wadongxi.com/attachment/shoplogo/82/a8/2c0b68a216e59a8.jpg" alt="ochirly官方旗舰店" />
+                            <span>ochirly官方旗舰店</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.wadongxi.com/shop/366544">
+                            <img src="http://img.wadongxi.com/attachment/shoplogo/44/59/cb6d64008f80659.jpg" alt="osa品牌服饰旗舰店" />
+                            <span>osa品牌服饰旗舰店</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.wadongxi.com/shop/37995">
+                            <img src="http://img.wadongxi.com/attachment/shoplogo/95/c4/eb97ee1c6eddbc4.jpg" alt="森宿旗舰店" />
+                            <span>森宿旗舰店</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.wadongxi.com/shop/987420">
+                            <img src="http://img.wadongxi.com/attachment/shoplogo/20/cc/c2331e157ee77cc.jpg" alt="骆驼户外官方旗舰店" />
+                            <span>骆驼户外官方旗舰店</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.wadongxi.com/shop/14790">
+                            <img src="http://img.wadongxi.com/attachment/shoplogo/90/1a/b5036fac0a5681a.gif" alt="阿芙官方旗舰店" />
+                            <span>阿芙官方旗舰店</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.wadongxi.com/shop/15235">
+                            <img src="http://img.wadongxi.com/attachment/shoplogo/35/57/8db34cd89a80557.jpg" alt="周生生官方旗舰店" />
+                            <span>周生生官方旗舰店</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.wadongxi.com/shop/364238">
+                            <img src="http://img.wadongxi.com/attachment/shoplogo/38/1a/1a58000d3fdf21a.gif" alt="大嘴猴 - Paul frank" />
+                            <span>大嘴猴 - Paul frank</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <span class="next"></span>
+        </div>
+    </div>
+</div>
+<div id="cloudwind_threadleft_content"></div>
+<pw-tpl id="thread_middle"/>
+<div class="box_wrap thread_page J_check_wrap">
+<!--公告-->
+<!--公告结束-->
+<div class="homes">
+<ul class="home-tab" id="tabs">
+    <li class="active"><a href="http://www.wadongxi.com/forum/zhi">值得买</a></li>
+</ul>
+<div class="home-tab-c" id="tabc">
+<div class="home-tabc show">
+<script>
+    window._bd_share_config={
+        "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":[]
+    };
+</script>
+    <include file="public:ajax_post_list" />
+<div class="pages_wrap cc">
+    <div class="J_page_wrap" data-key="true">
+        <div class="pages">
+            <strong>1</strong>
+            <a href="http://www.wadongxi.com/forum/zhi/2">2</a>
+            <a href="http://www.wadongxi.com/forum/zhi/3">3</a>
+            <a href="http://www.wadongxi.com/forum/zhi/4">4</a>
+            <a href="http://www.wadongxi.com/forum/zhi/153">...153</a>
+            <a href="http://www.wadongxi.com/forum/zhi/2" class="pages_next J_pages_next">下一页&nbsp;&raquo;</a>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="main_sidebar">
+    <div class="box_wrap sidebar_login">
+        <form id="J_login_form" action="http://www.wadongxi.com/u-login-dologin" method="post">
+            <dl>
+                <dt id="J_sidebar_login_dt" class="cc">
+                    <i class="icon_username" title="请输入用户名"></i><label for="J_username">用户名</label><input required type="text" class="input" id="J_username" name="username" placeholder="用户名">
+                    <i class="icon_password" title="请输入密码"></i><label for="J_password">密　码</label><input required type="password" class="input" id="J_password" name="password" placeholder="密码">
+                </dt>
+                <dd class="associate"><a class="sendpwd" rel="nofollow" href="http://www.wadongxi.com/u-findPwd-run">找回密码</a><label for="head_checkbox" title="下次自动登录"><input type="checkbox" id="head_checkbox" name="rememberme" value="31536000">自动登录</label></dd>
+                <dd class="operate"><button type="submit" id="J_sidebar_login" class="btn btn_big btn_submit">登录</button><a class="btn btn_big btn_error" href="http://www.wadongxi.com/u-register-run" rel="nofollow">立即注册</a></dd>
+            </dl>
+            <input type="hidden" name="csrf_token" value="14a09d5977471127"/></form>
+    </div>
+
+    <div class="box_wrap my_forum_list">
+        <h2 class="box_title J_sidebar_box_toggle">赞助商</h2>
+        <ul style="padding: 5px 5px;">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- 侧边栏 -->
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:250px;height:250px"
+                 data-ad-client="ca-pub-4381117097879290"
+                 data-ad-slot="6378513364"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </ul>
+    </div>
+    <!--advertisement id='Site.Sider.User' sys='1'/-->
+    <pw-drag id="sidebar_1"/>
+    <div class="box_wrap" aria-label="版块列表" role="tablist">
+        <h2 class="box_title J_sidebar_box_toggle">版块列表</h2>
+        <div class="forum_menu" >
+            <dl class="">
+                <dt class="J_sidebar_forum_toggle"><a href="http://www.wadongxi.com/forum/gouwu">购物论坛</a></dt>
+                <dd role="tabpanel">
+                    <p><a class="" href="http://www.wadongxi.com/forum/taobao">淘宝交流</a></p>
+                    <p><a class="" href="http://www.wadongxi.com/forum/daren">购物达人</a></p>
+                </dd>
+            </dl>
+            <dl class="">
+                <dt class="J_sidebar_forum_toggle"><a href="http://www.wadongxi.com/forum/guanli">站务管理</a></dt>
+                <dd role="tabpanel">
+                    <p><a class="" href="http://www.wadongxi.com/forum/gonggao">社区公告</a></p>
+                    <p><a class="" href="http://www.wadongxi.com/forum/jianyi">网友建议</a></p>
+                </dd>
+            </dl>
+            <dl class=" current">
+                <dt class="J_sidebar_forum_toggle"><a href="http://www.wadongxi.com/forum/zhi">值得买</a></dt>
+                <dd role="tabpanel">
+                    <p><a class="" href="http://www.wadongxi.com/forum/fushi">服饰鞋包</a></p>
+                    <p><a class="" href="http://www.wadongxi.com/forum/shuma">电脑数码</a></p>
+                    <p><a class="" href="http://www.wadongxi.com/forum/dianqi">家用电器</a></p>
+                    <p><a class="" href="http://www.wadongxi.com/forum/huwai">运动户外</a></p>
+                    <p><a class="" href="http://www.wadongxi.com/forum/tushu">图书音像</a></p>
+                    <p><a class="" href="http://www.wadongxi.com/forum/meizhuang">美妆个护</a></p>
+                    <p><a class="" href="http://www.wadongxi.com/forum/muying">母婴玩具</a></p>
+                    <p><a class="" href="http://www.wadongxi.com/forum/riyong">日用百货</a></p>
+                    <p><a class="" href="http://www.wadongxi.com/forum/meishi">食品保健</a></p>
+                    <p><a class="" href="http://www.wadongxi.com/forum/other">杂七杂八</a></p>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <div class="box_wrap">
+        <h2 class="box_title">热门话题</h2>
+        <div class="tags_hot">
+            <ul class="cc">
+                <li><a href="http://www.wadongxi.com/tag/14" class="title">满减</a></li>
+                <li><a href="http://www.wadongxi.com/tag/22" class="title">包邮</a></li>
+                <li><a href="http://www.wadongxi.com/tag/35" class="title">套装</a></li>
+                <li><a href="http://www.wadongxi.com/tag/39" class="title">特价</a></li>
+                <li><a href="http://www.wadongxi.com/tag/45" class="title">赠品</a></li>
+                <li><a href="http://www.wadongxi.com/tag/83" class="title">品牌</a></li>
+                <li><a href="http://www.wadongxi.com/tag/126" class="title">天猫</a></li>
+                <li><a href="http://www.wadongxi.com/tag/216" class="title">优惠劵</a></li>
+                <li><a href="http://www.wadongxi.com/tag/587" class="title">膳魔师</a></li>
+                <li><a href="http://www.wadongxi.com/tag/594" class="title">新百伦</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <pw-drag id="sidebar_thread"/>
+
+    <!--design role="segment" id="linkdemo"/-->
+    <div id="cloudwind_threadright_content"></div>
+</div>
+</div>
+<div id="cloudwind_thread_bottom"></div>
+</div>
+<!--.main-wrap,#main End-->
+<div class="tac">
+    <script type="text/javascript">
+        var cpro_id = "u1446497";
+    </script>
+    <script src="http://cpro.baidustatic.com/cpro/ui/c.js" type="text/javascript"></script>
+    <br />
+
+</div>
+<div class="footer_wrap">
+    <div class="footer">
+        <div class="box_wrap design_layout_style J_mod_layout_none">
+            <h2 class="design_layout_hd cc J_layout_hd"><span><a href="http://www.wadongxi.com/page/links">友情链接</a></span></h2>
+            <div class="design_layout_ct J_layout_item">
+                <div class="mod_box J_mod_box" data-model="link" data-id="94" id="J_mod_94" style="">
+                    <div class="tmode_traverseList">
+                        <section class="links_list">
+                            <ul class="cc">
+                                <li><a href="http://www.bagtree.cn" target="_blank">女包批发</a></li>
+                                <li><a href="http://shopping.onlylady.com/" target="_blank">精品购物指南</a></li>
+                                <li><a href="http://chengyu.eduu.com/" target="_blank">成语大全</a></li>
+                                <li><a href="http://www.b5m.com" target="_blank">购物搜索</a></li>
+                                <li><a href="http://www.miaokenet.com" target="_blank">9.9包邮</a></li>
+                                <li><a href="http://bbs.xbiao.com/" target="_blank">名表论坛</a></li>
+                                <li><a href="http://fanli.51bi.com" target="_blank">返利网</a></li>
+                                <li><a href="http://www.temi.com.cn/" target="_blank">返利</a></li>
+                                <li><a href="http://www.dahongshou.com" target="_blank">有奖促销</a></li>
+                                <li><a href="http://www.winenice.com/" target="_blank">酒美网</a></li>
+                                <li><a href="http://news.wbiao.cn" target="_blank">手表品牌排行榜</a></li>
+                                <li><a href="http://www.yifen.com/" target="_blank">一分网</a></li>
+                                <li><a href="http://www.xtep.com.cn/" target="_blank">特步运动鞋</a></li>
+                                <li><a href="http://www.kypbuy.com/" target="_blank">快易拍</a></li>
+                                <li><a href="http://www.tuanweihui.com" target="_blank">团购网</a></li>
+                                <li><a href="http://www.lilywed.cn/" target="_blank">婚纱摄影</a></li>
+                                <li><a href="http://www.baimei.com" target="_blank">百媚网</a></li>
+                                <li><a href="http://www.gbicom.cn/" target="_blank">商标转让</a></li>
+                                <li><a href="http://www.jia.com" target="_blank">齐家网</a></li>
+                                <li><a href="http://www.youngt.com" target="_blank">青团网</a></li>
+                                <li><a href="http://www.89ws.com/" target="_blank">电脑配件</a></li>
+                                <li><a href="http://www.zhidiy.com" target="_blank">折纸</a></li>
+                                <li><a href="http://www.mizhe.com" target="_blank">淘宝网购物</a></li>
+                                <li><a href="http://www.eshow365.com" target="_blank">展会</a></li>
+                                <li><a href="http://www.ansgo.com" target="_blank">安适购商城</a></li>
+                                <li><a href="http://www.guangjiela.com/" target="_blank">逛街啦</a></li>
+                                <li><a href="http://www.d8wed.com/" target="_blank">婚纱摄影团购</a></li>
+                                <li><a href="http://hk.szhk.com" target="_blank">香港购物</a></li>
+                                <li><a href="http://www.7po.com" target="_blank">智能电视</a></li>
+                                <li><a href="http://soxihuan.com" target="_blank">女装品牌</a></li>
+                                <li><a href="http://www.61ef.cn/" target="_blank">中国品牌童装网</a></li>
+                                <li><a href="http://mlbuy.com" target="_blank">外贸服装批发</a></li>
+                                <li><a href="http://www.romjd.com" target="_blank">ROM基地</a></li>
+                                <li><a href="http://www.mgyun.com" target="_blank">刷机大师</a></li>
+                                <li><a href="http://www.dapu.com" target="_blank">大朴家纺</a></li>
+                                <li><a href="http://www.sjq.cn" target="_blank">女装分销</a></li>
+                                <li><a href="http://www.loho88.com" target="_blank">眼镜店</a></li>
+                                <li><a href="http://www.j.cn/" target="_blank">女装搭配网</a></li>
+                                <li><a href="http://www.viewones.com" target="_blank">潮流资讯</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer_hotkeywords">
+            <ul id="friendLink">
+                <li>
+                    <a href="http://www.wadongxi.com/read/186">miss淘宝店</a>
+                    <a href="http://www.wadongxi.com/read/1">小苍淘宝店</a>
+                    <a href="http://www.wadongxi.com/read/2">09淘宝店</a>
+                    <a href="http://www.wadongxi.com/read/393">解说淘宝店</a>
+                    <a href="http://www.wadongxi.com/shop/tag/282-2">笔记本电脑排名</a>
+                    <a href="http://www.wadongxi.com/shop/tag/18598-2">净水器排名</a>
+                    <a href="http://www.wadongxi.com/shop/tag/5736-2">卫浴品牌</a>
+                    <a href="http://www.wadongxi.com/read/36">小智淘宝店</a>
+                    <a href="http://www.wadongxi.com/shop/tag/1811-0">皮草</a>
+                    <a href="http://www.wadongxi.com/shop/591">飙歌达人</a>
+                    <a href="http://www.wadongxi.com/shop/tag/2980-0">手工皂</a>
+                    <a href="http://www.wadongxi.com/mall/2484">特斯拉</a>
+                    <a href="http://www.wadongxi.com/cat/11570">空调扇什么牌子好</a>
+                    <a href="http://www.wadongxi.com/cat/11578">吸尘器什么牌子好</a>
+                    <a href="http://www.wadongxi.com/cat/11577">净水器哪个牌子好</a>
+                </li>
+                <li>
+                    <a href="http://www.wadongxi.com/brand/2380">红蜻蜓</a>
+                    <a href="http://www.wadongxi.com/brand/3390">柏氏</a>
+                    <a href="http://www.wadongxi.com/mall/352">寺库</a>
+                    <a href="http://www.wadongxi.com/shop/1977652">小米官方旗舰店</a>
+                    <a href="http://www.wadongxi.com/brand/19318">七格格</a>
+                    <a href="http://www.wadongxi.com/brand/2532">新百伦</a>
+                    <a href="http://www.wadongxi.com/cat/10817">移动电源哪个牌子好</a>
+                    <a href="http://www.wadongxi.com/cat/21900">平板电脑什么牌子好</a>
+                    <a href="http://www.wadongxi.com/brand/27052">三只松鼠</a>
+                    <a href="http://www.wadongxi.com/brand/11039">妖精的口袋</a>
+                    <a href="http://www.wadongxi.com/brand/17027">温碧泉</a>
+                    <a href="http://www.wadongxi.com/brand/3402">白大夫</a>
+                    <a href="http://www.wadongxi.com/brand/3100">丸美</a>
+                    <a href="http://www.wadongxi.com/cat/12767">跑步机什么牌子好</a>
+                    <a href="http://www.wadongxi.com/cat/11297">液晶电视哪个牌子好</a>
+                </li>
+                <li>
+                    <a href="http://www.wadongxi.com/brand/2969">哥弟</a>
+                </li>
+                <li class="friend">
+                    <a href="http://www.wadongxi.com/shop/155278" target="_blank" title="YY时尚购物馆">YY时尚购物馆</a>
+                    <a href="http://www.wadongxi.com/shop/155277" target="_blank" title="创展数码专营店">创展数码专营店</a>
+                    <a href="http://www.wadongxi.com/shop/155276" target="_blank" title="东莞市樟木头利荣电子经营部">东莞市樟木头利荣电子经营部</a>
+                    <a href="http://www.wadongxi.com/shop/155275" target="_blank" title="艾思对讲机配件">艾思对讲机配件</a>
+                    <a href="http://www.wadongxi.com/shop/155274" target="_blank" title="IP手机配件中心">IP手机配件中心</a>
+                    <a href="http://www.wadongxi.com/shop/155273" target="_blank" title="壹品数码配件">壹品数码配件</a>
+                    <a href="http://www.wadongxi.com/shop/155270" target="_blank" title="局外人科技数码馆">局外人科技数码馆</a>
+                    <a href="http://www.wadongxi.com/shop/155268" target="_blank" title="斯兰卡网络科技有限公司">斯兰卡网络科技有限公司</a>
+                    <a href="http://www.wadongxi.com/shop/155266" target="_blank" title="~小帆船">~小帆船</a>
+                    <a href="http://www.wadongxi.com/shop/155265" target="_blank" title="浩然通信数码港">浩然通信数码港</a>
+                </li>
+                <li class="friend">
+                    <a href="http://www.wadongxi.com/shop/405298" target="_blank" title="艳艳睡衣专营">艳艳睡衣专营</a>
+                    <a href="http://www.wadongxi.com/shop/405297" target="_blank" title="红人馆内衣">红人馆内衣</a>
+                    <a href="http://www.wadongxi.com/shop/405296" target="_blank" title="宅居部落">宅居部落</a>
+                    <a href="http://www.wadongxi.com/shop/405295" target="_blank" title="●╭⌒优琪.女生馆●性感可爱内裤。大码内裤@内睡衣@满50包邮">●╭⌒优琪.女生馆●性感可爱内裤。大码内裤@内睡衣@满50包邮</a>
+                    <a href="http://www.wadongxi.com/shop/405294" target="_blank" title="哟哟袜子专卖">哟哟袜子专卖</a>
+                    <a href="http://www.wadongxi.com/shop/405293" target="_blank" title="蝴蝶夫人坊">蝴蝶夫人坊</a>
+                    <a href="http://www.wadongxi.com/shop/405292" target="_blank" title="蓝月儿服饰">蓝月儿服饰</a>
+                    <a href="http://www.wadongxi.com/shop/405291" target="_blank" title="『爆爆橱内衣店』">『爆爆橱内衣店』</a>
+                    <a href="http://www.wadongxi.com/shop/405290" target="_blank" title="懒人袜铺">懒人袜铺</a>
+                    <a href="http://www.wadongxi.com/shop/405289" target="_blank" title="极致生活秀">极致生活秀</a>
+                    <a href="http://www.wadongxi.com/shop/405288" target="_blank" title="见贤思齐">见贤思齐</a>
+                    <a href="http://www.wadongxi.com/shop/405287" target="_blank" title="E尚外贸批发家居馆">E尚外贸批发家居馆</a>
+                    <a href="http://www.wadongxi.com/shop/405286" target="_blank" title="{小翘妞de公主衣橱}●可爱袜子.内裤.文胸.睡衣.48元包邮~">{小翘妞de公主衣橱}●可爱袜子.内裤.文胸.睡衣.48元包邮~</a>
+                    <a href="http://www.wadongxi.com/shop/405285" target="_blank" title="朵典旗舰店">朵典旗舰店</a>
+                    <a href="http://www.wadongxi.com/shop/405284" target="_blank" title="欧风精品(CK原单)">欧风精品(CK原单)</a>
+                    <a href="http://www.wadongxi.com/shop/405283" target="_blank" title="香妮有约塑身美体内衣店">香妮有约塑身美体内衣店</a>
+                    <a href="http://www.wadongxi.com/shop/405282" target="_blank" title="CK美国正品">CK美国正品</a>
+                    <a href="http://www.wadongxi.com/shop/405281" target="_blank" title="【河北商盟】百佳内衣旗舰店">【河北商盟】百佳内衣旗舰店</a>
+                    <a href="http://www.wadongxi.com/shop/405280" target="_blank" title="【亦足2006】七匹狼内裤 袜子 背心 保暖内衣">【亦足2006】七匹狼内裤 袜子 背心 保暖内衣</a>
+                    <a href="http://www.wadongxi.com/shop/405279" target="_blank" title="青柠服饰">青柠服饰</a>
+                </li>
+                <li class="friend">
+                    <a href="http://www.wadongxi.com/shop/tag/75680-0" target="_blank" title="铁包金">铁包金</a>
+                    <a href="http://www.wadongxi.com/shop/tag/34072-0" target="_blank" title="刀叉">刀叉</a>
+                    <a href="http://www.wadongxi.com/shop/tag/115229-0" target="_blank" title="estpac">estpac</a>
+                    <a href="http://www.wadongxi.com/shop/tag/29943-0" target="_blank" title="绿藻">绿藻</a>
+                    <a href="http://www.wadongxi.com/shop/tag/124932-0" target="_blank" title="整蛊用品">整蛊用品</a>
+                    <a href="http://www.wadongxi.com/shop/tag/38447-0" target="_blank" title="水溶性">水溶性</a>
+                    <a href="http://www.wadongxi.com/shop/tag/67017-0" target="_blank" title="蒂巴蕾">蒂巴蕾</a>
+                    <a href="http://www.wadongxi.com/shop/tag/65212-0" target="_blank" title="踩脚打底裤">踩脚打底裤</a>
+                    <a href="http://www.wadongxi.com/shop/tag/36928-0" target="_blank" title="防晒手套">防晒手套</a>
+                    <a href="http://www.wadongxi.com/shop/tag/16051-0" target="_blank" title="hardwear">hardwear</a>
+                </li>
+            </ul>
+        </div>
+
+        <pw-drag id="footer_segment"/>
+        <div class="bottom">
+            <a href="http://www.wadongxi.com/page/sitemap">网站地图</a><a href="http://www.wadongxi.com/page/links">友情链接</a><a href="http://www.wadongxi.com/forum/zhi">值得买</a><a href="http://www.wadongxi.com">比价网</a><a href="http://www.wadongxi.com">购物搜索</a>		</div>
+        <p>Powered by <a href="http://www.wadongxi.com/" target="_blank">挖东西</a> &copy;2003-2103 wadongxi.com <a href="http://www.miibeian.gov.cn" target="_blank" rel="nofollow">浙ICP备12004742号</a></p>
+        <p><script src="http://s85.cnzz.com/stat.php?id=4316761&web_id=4316761" language="JavaScript"></script></p>
+    </div>
+
+
+    <div id="cloudwind_common_bottom"></div>
+</div>
+
+<!--返回顶部-->
+<a href="#" rel="nofollow" role="button" id="back_top" tabindex="-1">返回顶部</a>
+</div>
+
+<script src="http://www.wadongxi.com/themes/forum/zdm/js/jquery-1.10.2.min.js"></script>
+<script src="http://www.wadongxi.com/themes/forum/zdm/js/jquery.liquidcarousel.min.js"></script>
+<script>
+    $(document).ready(function() {
+        var $w = $(window);
+        var $bar = $(".main_sidebar");
+        var _t = parseInt($(".my_forum_list").offset().top)-70;
+        var _dh = parseInt($("body").height()); //文档高度
+        var _wh = parseInt($(window).height())-85; //窗口高度,减去顶部
+        var _fh = parseInt($(".footer_wrap").height())+28; //底部高度，加上间距
+        var _ah = parseInt($(".footer_wrap").prev(".tac").height());
+        var _ft = _dh-_wh-_fh-_ah;
+        $w.bind("scroll", function() {
+            var $s = $(this);
+            var _top = parseInt($s.scrollTop());
+            if (_top>=_t) {
+                $bar.css({"position":"fixed", "left":"50%", "margin-left":"209px"});
+                //console.log(_top+","+_ft);
+                if (_top>=_ft) {
+                    $bar.css({"bottom":(_top-_ft+20)+"px", "top":"auto"});
+                } else {
+                    $bar.css({"top":"-"+(_t-90)+"px", "bottom":"auto"});
+                }
+            } else {
+                $bar.removeAttr("style");
+            }
+        });
+    });
+    $('#swipe').liquidcarousel({height:150, duration:300, hidearrows:false});
+    $('#swipe2').liquidcarousel({height:120, duration:300, hidearrows:false});
+
+    var tabs = document.getElementById("tabs").getElementsByTagName("li");
+    var elems = document.getElementById("tabc").children;
+    for(var i=0;i<tabs.length;i++) {
+        tabs[i].onclick = function() {
+            change(this);
+        }
+    }
+    function change(obj){
+        for(var i=0;i<tabs.length;i++) {
+            if(tabs[i]==obj) {
+                tabs[i].className="active";
+                elems[i].className="home-tabc show";
+            } else {
+                tabs[i].className="";
+                elems[i].className="home-tabc";
+            }
+        }
+    }
+</script>
+<script type="text/javascript">
+    function scrollLink(){
+        var linkHeight = parseInt($("#friendLink").css("height"));
+        var linkMarginTop = -parseInt($("#friendLink").css("marginTop"));
+        if((linkHeight-30) <= linkMarginTop){
+            $("#friendLink").animate({marginTop:"0"},500);
+        }else{
+            $("#friendLink").animate({marginTop:-(linkMarginTop+30)+"px"},500);
+        }
+    }
+    Wind.ready(function(){
+        var ab = setInterval(scrollLink,3000);
+    });
+</script>
+<script src="http://www.wadongxi.com/res/js/dev/wa/url_decode.js"></script>
+<script type="text/javascript"> (function(win,doc){ var s = doc.createElement("script"), h = doc.getElementsByTagName("head")[0]; if (!win.alimamatk_show) { s.charset = "gbk"; s.async = true; s.src = "http://a.alimama.cn/tkapi.js"; h.insertBefore(s, h.firstChild); }; var o = { pid: "mm_24649194_3302375_14908654", appkey: "", unid: "" }; win.alimamatk_onload = win.alimamatk_onload || []; win.alimamatk_onload.push(o); })(window,document);</script>
+<script>
+    with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=86835285.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+</body>
+</html>
