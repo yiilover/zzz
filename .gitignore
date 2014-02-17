@@ -4,9 +4,7 @@
 /_core/**
 /api/
 /api/**
-
-/data/*
-!/data/config/config.php
+/data/
 /install/
 /install/**
 /tools/
@@ -19,3 +17,4 @@ httpd.ini
 index.php
 install.php
 robots.txt
+
