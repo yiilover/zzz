@@ -5,7 +5,7 @@
 /api/
 /api/**
 
-/data/**
+/data/*
 !/data/config/config.php
 /install/
 /install/**
