@@ -86,11 +86,11 @@
         <ul class="l-cats-list">
             <volist name="recommend_cate" id="val">
             <li class="">
-                <a href="{:u('post_cate/index',array('id'=>$val['id']))}"><i></i>{$val.name}</a>
+                <a href="{$val.url}"><i></i>{$val.name}</a>
                 <div class="l-subcats">
                     <ul>
                         <volist name="val.son" id="v">
-                            <li><a class="" href="{:u('post_cate/index',array('id'=>$v['id']))}">{$v.name}</a></li>
+                            <li><a class="" href="{$v.url}">{$v.name}</a></li>
                         </volist>
                     </ul>
                 </div>

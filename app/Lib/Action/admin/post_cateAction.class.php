@@ -123,6 +123,7 @@ class post_cateAction extends backendAction {
             for ($j = 1; $j <= $data->sheets[0]['numCols']; $j++) {
                 $arr[$i]['id'] = $id;
                 $arr[$i]['name'] = $data->sheets[0]['cells'][$i][5];
+                $arr[$i]['alias'] = $data->sheets[0]['cells'][$i][6];
                 $arr[$i]['pid'] = 1;
                 $arr[$i]['status'] = 1;
             }

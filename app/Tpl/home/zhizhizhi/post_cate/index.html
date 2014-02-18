@@ -1,33 +1,265 @@
 <include file="public:header" />
+<div class="main_wrap">
 
-<!--内容页开始-->
-<div class="main_content">
-    <!--主部开始-->
-    <div id="main">
-        <div class="contentbox clearfix">
-        <div class="w668 fl">
-            <div class="clearfix crumbBox">当前位置:<a href="__ROOT__/">首页</a>>><strong>{$info.name}</strong></div>
-            <div class="showinfo">
-                <include file="public:hot_activity" />                        
-                <!--产品展示方式开始-->
-                <div class="product_show" id="J_waterfall" data-uri="__ROOT__/?m={:MODULE_NAME}&a=index&sort={$sort}&p={$p}&id={$id}">        
-                    <include file="public:ajax_post_list" />
-                </div>
-                <present name="show_load">
-                <div id="J_wall_loading" class="wall_loading tc gray"><span>{:L('loading')}</span></div>
-                </present>
-                <present name="page_bar">
-                <div id="J_wall_page" class="wall_page" <present name="show_page">style="display:block;"</present>>
-                    <div class="page">{$page_bar}</div>
-                </div>
-                </present>
-            </div>
+<div class="bread_crumb" id="bread_crumb">
+    <a href="http://www.wadongxi.com/" title="挖东西" class="home">首页</a><em>&gt;</em><a href="http://www.wadongxi.com/forum/zhi">值得买</a><em>&gt;</em><a href="http://www.wadongxi.com/forum/fushi">服饰鞋包</a>		</div>
+
+<div class="main cc">
+<div id="cloudwind_thread_top"></div>
+<div class="main_body">
+<div class="zdm-wrap">
+
+<div class="box_wrap">
+    <div class="forum_info_box cc" id="J_forum_info_box">
+        <div class="name">
+            <h3>服饰鞋包</h3>
         </div>
-        <div class="w300 fr">
-            <include file="public:find" /> 
+        <div class="notice">
+            <span class="J_forum_intro"><!-- &nbsp;&nbsp;<a href="#" class="more s4 J_forum_intro_slide" data-role="down">更多&gt;&gt;</a> --></span>
         </div>
     </div>
+</div>
+<div id="cloudwind_threadleft_content"></div>
+
+
+<!--需要js定位-->
+<div id="J_thread_post_types_1" class="btn_post_menu" style="display:none;">
+    <ul>
+    </ul>
+</div>
+<div class="box_wrap thread_page J_check_wrap">
+<nav>
+    <div class="content_nav">
+        <ul class="cc" id="hashpos_ttype">
+            <li class=" current"><a href="http://www.wadongxi.com/forum/fushi">全部</a></li>
+            <li class=""><a href="http://www.wadongxi.com/forum/fushi?tab=digest">精华</a></li>
+            <li><a href="http://www.wadongxi.com/bbs-user-run?fid=22">会员</a></li>
+        </ul>
     </div>
-    <!--主部结束-->
-</div>	
-<include file="public:footer" />
+    <div class="content_type">
+        <ul class="cc">
+            <li class=" current"><a href="http://www.wadongxi.com/forum/fushi">全部</a></li>
+            <li class="line"></li><li class="J_menu_drop ">
+            <a href="http://www.wadongxi.com/forum/fushi?type=3">女装</a>
+        </li>
+            <li class="line"></li><li class="J_menu_drop ">
+            <a href="http://www.wadongxi.com/forum/fushi?type=4">男装</a>
+        </li>
+            <li class="line"></li><li class="J_menu_drop ">
+            <a href="http://www.wadongxi.com/forum/fushi?type=5">童装</a>
+        </li>
+            <li class="line"></li><li class="J_menu_drop ">
+            <a href="http://www.wadongxi.com/forum/fushi?type=6">内衣</a>
+        </li>
+            <li class="line"></li><li class="J_menu_drop ">
+            <a href="http://www.wadongxi.com/forum/fushi?type=7">女鞋</a>
+        </li>
+            <li class="line"></li><li class="J_menu_drop ">
+            <a href="http://www.wadongxi.com/forum/fushi?type=8">男鞋</a>
+        </li>
+            <li class="line"></li><li class="J_menu_drop ">
+            <a href="http://www.wadongxi.com/forum/fushi?type=9">配饰</a>
+        </li>
+            <li class="line"></li><li class="J_menu_drop ">
+            <a href="http://www.wadongxi.com/forum/fushi?type=10">女包</a>
+        </li>
+            <li class="line"></li><li class="J_menu_drop ">
+            <a href="http://www.wadongxi.com/forum/fushi?type=11">男包</a>
+        </li>
+            <li class="line"></li><li class="J_menu_drop ">
+            <a href="http://www.wadongxi.com/forum/fushi?type=12">功能箱包</a>
+        </li>
+        </ul>
+    </div>
+</nav>
+<script>
+    window._bd_share_config={
+        "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":[]
+    };
+</script>
+    <include file="public:ajax_post_list" />
+<div class="pages_wrap cc">
+    <div class="J_page_wrap" data-key="true">
+        <div class="pages">
+            <strong>1</strong>
+            <a href="http://www.wadongxi.com/forum/fushi/2">2</a>
+            <a href="http://www.wadongxi.com/forum/fushi/3">3</a>
+            <a href="http://www.wadongxi.com/forum/fushi/4">4</a>
+            <a href="http://www.wadongxi.com/forum/fushi/25">...25</a>
+            <a href="http://www.wadongxi.com/forum/fushi/2" class="pages_next J_pages_next">下一页&nbsp;&raquo;</a>
+        </div>
+    </div>
+</div>
+<div id="J_thread_post_types_2" class="btn_post_menu" style="display:none;">
+    <ul>
+    </ul>
+</div>
+
+
+</div>
+</div>
+<div class="main_sidebar">
+    <div class="box_wrap my_forum_list">
+        <h2 class="box_title J_sidebar_box_toggle">赞助商</h2>
+        <ul style="padding: 5px 5px;">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- 侧边栏 -->
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:250px;height:250px"
+                 data-ad-client="ca-pub-4381117097879290"
+                 data-ad-slot="6378513364"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </ul>
+    </div>
+
+    <div class="box_wrap" aria-label="版块列表" role="tablist">
+        <h2 class="box_title J_sidebar_box_toggle">版块列表</h2>
+        <div class="forum_menu" >
+            <dl class="">
+                <dt class="J_sidebar_forum_toggle"><a href="http://www.wadongxi.com/forum/gouwu">购物论坛</a></dt>
+                <dd role="tabpanel">
+                    <p><a class="" href="http://www.wadongxi.com/forum/taobao">淘宝交流</a></p>
+                    <p><a class="" href="http://www.wadongxi.com/forum/daren">购物达人</a></p>
+                </dd>
+            </dl>
+            <dl class="">
+                <dt class="J_sidebar_forum_toggle"><a href="http://www.wadongxi.com/forum/guanli">站务管理</a></dt>
+                <dd role="tabpanel">
+                    <p><a class="" href="http://www.wadongxi.com/forum/gonggao">社区公告</a></p>
+                    <p><a class="" href="http://www.wadongxi.com/forum/jianyi">网友建议</a></p>
+                </dd>
+            </dl>
+            <dl class=" current">
+                <dt class="J_sidebar_forum_toggle"><a href="http://www.wadongxi.com/forum/zhi">值得买</a></dt>
+                <dd role="tabpanel">
+                    <p><a class=" current" href="http://www.wadongxi.com/forum/fushi">服饰鞋包</a></p>
+                    <p><a class="" href="http://www.wadongxi.com/forum/shuma">电脑数码</a></p>
+                    <p><a class="" href="http://www.wadongxi.com/forum/dianqi">家用电器</a></p>
+                    <p><a class="" href="http://www.wadongxi.com/forum/huwai">运动户外</a></p>
+                    <p><a class="" href="http://www.wadongxi.com/forum/tushu">图书音像</a></p>
+                    <p><a class="" href="http://www.wadongxi.com/forum/meizhuang">美妆个护</a></p>
+                    <p><a class="" href="http://www.wadongxi.com/forum/muying">母婴玩具</a></p>
+                    <p><a class="" href="http://www.wadongxi.com/forum/riyong">日用百货</a></p>
+                    <p><a class="" href="http://www.wadongxi.com/forum/meishi">食品保健</a></p>
+                    <p><a class="" href="http://www.wadongxi.com/forum/other">杂七杂八</a></p>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <div class="box_wrap">
+        <h2 class="box_title">热门话题</h2>
+        <div class="tags_hot">
+            <ul class="cc">
+                <li><a href="http://www.wadongxi.com/tag/14" class="title">满减</a></li>
+                <li><a href="http://www.wadongxi.com/tag/22" class="title">包邮</a></li>
+                <li><a href="http://www.wadongxi.com/tag/35" class="title">套装</a></li>
+                <li><a href="http://www.wadongxi.com/tag/39" class="title">特价</a></li>
+                <li><a href="http://www.wadongxi.com/tag/83" class="title">品牌</a></li>
+                <li><a href="http://www.wadongxi.com/tag/216" class="title">优惠劵</a></li>
+                <li><a href="http://www.wadongxi.com/tag/252" class="title">索尼</a></li>
+                <li><a href="http://www.wadongxi.com/tag/587" class="title">膳魔师</a></li>
+                <li><a href="http://www.wadongxi.com/tag/594" class="title">新百伦</a></li>
+                <li><a href="http://www.wadongxi.com/tag/669" class="title">瑞士莲</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div role="structure_zzthty" data-lcm="100" class="box_wrap design_layout_style J_mod_layout_none" id="zzthty">			<h2 role="titlebar" class="design_layout_hd cc J_layout_hd" style=""><span style="color: #666666;font-weight:bold;">值得买排行榜</span></h2>			<div class="design_layout_ct J_layout_item"><div id="J_mod_11" style="" data-id="11" data-model="thread" class="mod_box J_mod_box"><div class="tmode_list tmode_list_sort">
+        <ul>
+            <li><span class="time">12-24</span><a href="http://www.wadongxi.com/read/289" target="_blank">限华南：JOYOUNG 九阳 DJ12B-D26D 植物奶牛系列 豆浆机</a></li>
+            <li><span class="time">12-20</span><a href="http://www.wadongxi.com/read/228" target="_blank">Dewar&#039;s 帝王 白牌 调配苏格兰威士忌 750ml</a></li>
+            <li><span class="time">12-20</span><a href="http://www.wadongxi.com/read/227" target="_blank">TOPOTO 拓朴 双头好好拖把套装</a></li>
+            <li><span class="time">12-20</span><a href="http://www.wadongxi.com/read/230" target="_blank">限华北：Prestone 百适通 50/50预混合 AF2100 长效防冻液 3.78L</a></li>
+            <li><span class="time">12-24</span><a href="http://www.wadongxi.com/read/282" target="_blank">SUPOR 苏泊尔 PC32M3 32cm 火红点炒锅</a></li>
+            <li><span class="time">12-25</span><a href="http://www.wadongxi.com/read/292" target="_blank">LG 27EA33V-B 27英寸液晶显示器（1080P、IPS、全接口）</a></li>
+            <li><span class="time">12-24</span><a href="http://www.wadongxi.com/read/290" target="_blank">平安夜跳水：HUAWEI 华为 Mate WCDMA/GSM 智能手机（超敏感触摸屏、2G RAM、6.1寸、2A）</a></li>
+            <li><span class="time">12-30</span><a href="http://www.wadongxi.com/read/323" target="_blank">PaPaGo 趴趴狗 P1 PRO 高画质行车记录器 白色</a></li>
+            <li><span class="time">12-24</span><a href="http://www.wadongxi.com/read/288" target="_blank">American Standard 美标 淋浴套餐（CF-9174淋浴组件+CF-0T11淋浴龙头）</a></li>
+            <li><span class="time">12-24</span><a href="http://www.wadongxi.com/read/287" target="_blank">Hasbro 孩之宝 Monololy 地产大亨 27117 小小医生 + 玩具小车</a></li>
+        </ul>
+    </div></div></div></div>
+
+    <div id="cloudwind_threadright_content"></div>
+</div>
+</div>
+<div id="cloudwind_thread_bottom"></div>
+</div>
+<!--.main-wrap,#main End-->
+<div class="tac">
+    <script type="text/javascript">
+        var cpro_id = "u1446497";
+    </script>
+    <script src="http://cpro.baidustatic.com/cpro/ui/c.js" type="text/javascript"></script>
+    <br />
+
+</div>
+<div class="footer_wrap">
+    <div class="footer">
+
+        <div class="bottom">
+            <a href="http://www.wadongxi.com/page/sitemap">网站地图</a><a href="http://www.wadongxi.com/page/links">友情链接</a><a href="http://www.wadongxi.com/forum/zhi">值得买</a><a href="http://www.wadongxi.com">比价网</a><a href="http://www.wadongxi.com">购物搜索</a>		</div>
+        <p>Powered by <a href="http://www.wadongxi.com/" target="_blank">挖东西</a> &copy;2003-2103 wadongxi.com 浙ICP备12004742号</p>
+        <p><script src="http://s85.cnzz.com/stat.php?id=4316761&web_id=4316761" language="JavaScript"></script></p>
+    </div>
+
+
+    <div id="cloudwind_common_bottom"></div>
+</div>
+
+<!--返回顶部-->
+<a href="#" rel="nofollow" role="button" id="back_top" tabindex="-1">返回顶部</a>
+</div>
+
+<script>
+    var FID = '22';
+    Wind.use('jquery', 'global', function(){
+        //主题分类下拉
+        $('li.J_menu_drop').on('mouseenter', function(e){
+            $(this).children('div.J_menu_drop_list').show();
+        }).on('mouseleave', function(e){
+                    $(this).children('div.J_menu_drop_list').hide();
+                });
+
+
+        /*
+         * 版块简介收起展开
+         */
+        $('a.J_forum_intro_slide').on('click', function(e){
+            e.preventDefault();
+            var role = $(this).data('role');
+
+            if(role == 'down') {
+                $(this).text('收起<<').data('role', 'up');
+            }else{
+                $(this).text('更多>>').data('role', 'down');
+            }
+            $('span.J_forum_intro:hidden').show().siblings('.J_forum_intro').hide();
+        });
+
+        var thread_post_btn = $('a.J_thread_post_btn');
+        thread_post_btn.each(function(i, o){
+            Wind.Util.hoverToggle({
+                elem : $(o),						//hover元素
+                list : $('#'+ $(o).data('rel')),		//下拉菜单
+                callback : function(elem, list){
+                    list.css({
+                        left : elem.offset().left,
+                        top : elem.offset().top + elem.height()
+                    });
+                }
+            });
+        });
+
+    });
+</script>
+
+
+<script src="http://www.wadongxi.com/res/js/dev/wa/url_decode.js"></script>
+<script type="text/javascript"> (function(win,doc){ var s = doc.createElement("script"), h = doc.getElementsByTagName("head")[0]; if (!win.alimamatk_show) { s.charset = "gbk"; s.async = true; s.src = "http://a.alimama.cn/tkapi.js"; h.insertBefore(s, h.firstChild); }; var o = { pid: "mm_24649194_3302375_14908654", appkey: "", unid: "" }; win.alimamatk_onload = win.alimamatk_onload || []; win.alimamatk_onload.push(o); })(window,document);</script>
+<script>
+    with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=86835285.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+</body>
+</html>

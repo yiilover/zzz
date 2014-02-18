@@ -40,9 +40,14 @@ class frontendAction extends baseAction {
             $cate[] = array(
                 'id' => $id,
                 'name' => $r['name'],
-                'son' => D("post_cate")->where("pid={$id} and status=1")->select()
+                'url' => 'forum/'.$r['alias'],
+                'son' => $this->get_cate2($id, $r['alias'])
             );
         }
+
+
+
+
         $this->assign('recommend_cate', $cate);
         $this->assign('tese_cate', D("post_cate")->where("pid=2 and status=1")->select());
         $this->assign('main_nav_list', D("nav")->where("type='main' and status=1 and homepage=0")->order('ordid')->select());
@@ -73,6 +78,18 @@ class frontendAction extends baseAction {
             echo "var def=" . json_encode($def) . ';';
             exit();
         }
+    }
+
+    protected function get_cate2($id, $alias){
+        $arr = D("post_cate")->where("pid={$id} and status=1")->select();
+        foreach($arr as $r){
+            $data[] = array(
+                'id' => $r['id'],
+                'name' => $r['name'],
+                'url' => 'forum/'.$alias.'?type='.$r['id']
+            );
+        }
+        return $data;
     }
     protected function _assign_common() {
         $this->assign("quick_mall_list", D("mall")->where("status=1")->order("ordid desc")->limit("10")->select());
