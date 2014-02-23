@@ -206,16 +206,21 @@ class frontendAction extends baseAction {
         import("ORG.Util.Page");
         $count = $mod->where($where)->count();
         $pager = $this->_pager($count, $page_size);
+//        $join = 'zhi_mall on zhi_post.mall_id = zhi_mall.id ';
+//        $relation = true;
+//        ->join($join)
         $select = $mod->where($where)->order($order)->limit($pager->firstRow . ',' .
         $pager->listRows);
         if ($relation) {
             $select = $select->relation($relation);
         }
         $list = $select->select();
+        print_r($list);die;
         if (method_exists($this, $callback)) {
             $list = $this->$callback($list);
         }
         $this->assign('list', $list);
+
         $this->assign('page', $pager->fshow());
         return $list;
     }

@@ -28,7 +28,9 @@ class indexAction extends frontendAction {
         ));
         $where['post_time'] = array('elt',time());
         $where['status'] = 1;
-        $this->_waterfall(D("post"),$where,'post_time desc');
+//        $this->_waterfall(D("post"),$where,'post_time desc');
+        $this->_assign_list(D("post"),$where,9);
+        $this->display();
     }
     public function go(){        
         $id=$this->_get('id','intval');
