@@ -26,8 +26,8 @@ class indexAction extends frontendAction {
         $this->assign('search',array(
             'keyword'=>$keyword
         ));
-        $where['post_time'] = array('elt',time());
-        $where['status'] = 1;
+        $where['zhi_post.post_time'] = array('elt',time());
+        $where['zhi_post.status'] = 1;
 //        $this->_waterfall(D("post"),$where,'post_time desc');
         $this->_assign_list(D("post"),$where,9);
         $this->display();

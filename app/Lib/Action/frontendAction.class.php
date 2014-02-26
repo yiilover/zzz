@@ -202,17 +202,18 @@ class frontendAction extends baseAction {
         $recommend_list = D("post")->where("is_recommend=1 and status=1 and post_time<=" . time())->order("ordid")->limit("0,8")->select();
         $this->assign('recommend_list', $recommend_list);
     }
-    protected function _assign_list($mod, $where, $page_size = 15, $relation = false, $order = "id desc", $callback = "_parse_assign_list") {
+    protected function _assign_list($mod, $where, $page_size = 15, $relation = false, $order = "zhi_post.id desc", $callback = "_parse_assign_list") {
         import("ORG.Util.Page");
         $count = $mod->where($where)->count();
         $pager = $this->_pager($count, $page_size);
-//        $join = 'zhi_mall on zhi_post.mall_id = zhi_mall.id ';
-//        $relation = true;
-//        ->join($join)
-        $select = $mod->where($where)->order($order)->limit($pager->firstRow . ',' .
+        $join = 'zhi_mall on zhi_post.mall_id = zhi_mall.id ';
+        $relation = true;
+//        $order = '';
+        $field = 'zhi_post.*,zhi_mall.title as mall_title';
+        $select = $mod->field($field)->where($where)->join($join)->order($order)->limit($pager->firstRow . ',' .
         $pager->listRows);
         if ($relation) {
-            $select = $select->relation($relation);
+//            $select = $select->relation($relation);
         }
         $list = $select->select();
         print_r($list);die;
