@@ -312,6 +312,7 @@ class post_cateAction extends backendAction {
             $tel = $data->sheets[0]['cells'][$i][9];
             $addr = $data->sheets[0]['cells'][$i][10];
             $aid = $data->sheets[0]['cells'][$i][11];
+
             for ($j = 1; $j <= $data->sheets[0]['numCols']; $j++) {
 
                 $arr[$i]['title'] = $title;
@@ -321,7 +322,7 @@ class post_cateAction extends backendAction {
                 $arr[$i]['email'] = $email;
                 $arr[$i]['tel'] = $tel;
                 $arr[$i]['addr'] = $addr;
-                $arr[$i]['id'] = $aid;
+                $arr[$i]['aid'] = $aid;
                 $arr[$i]['add_time'] = time();
             }
             $mod->add($arr[$i]);

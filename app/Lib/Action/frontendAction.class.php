@@ -208,15 +208,13 @@ class frontendAction extends baseAction {
         $pager = $this->_pager($count, $page_size);
         $join = 'zhi_mall on zhi_post.mall_id = zhi_mall.id ';
         $relation = true;
-//        $order = '';
         $field = 'zhi_post.*,zhi_mall.title as mall_title';
         $select = $mod->field($field)->where($where)->join($join)->order($order)->limit($pager->firstRow . ',' .
         $pager->listRows);
         if ($relation) {
-//            $select = $select->relation($relation);
+            $select = $select->relation($relation);
         }
         $list = $select->select();
-        print_r($list);die;
         if (method_exists($this, $callback)) {
             $list = $this->$callback($list);
         }
