@@ -20,6 +20,8 @@ class post_cateAction extends frontendAction {
         $cate_id=intval($_REQUEST['id']);
         $title=trim($_REQUEST['title']);
         $alias=$_REQUEST['alias'];
+        echo $_REQUEST['id'];
+        die;
         if(!$cate_id){
             $info=D("post_cate")->where(array('alias'=>$alias))->find();
             $cat_id =$info['id'];
