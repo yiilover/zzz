@@ -14,22 +14,12 @@
  */
 class post_cateAction extends frontendAction {
     public function index() {
-
-
         $this->_assign_hot_list();
-        $cate_id=intval($_REQUEST['id']);
-        $title=trim($_REQUEST['title']);
         $alias=$_REQUEST['alias'];
-        echo $_REQUEST['id'];
-        die;
-        if(!$cate_id){
-            $info=D("post_cate")->where(array('alias'=>$alias))->find();
-            $cat_id =$info['id'];
-        }else{
-            $info=D("post_cate")->where(array('id'=>$cate_id))->find();
-        }
+        $info=D("post_cate")->where(array('alias'=>$alias))->find();
+        $cate_id=$info['id'];
+print_r(D('post_cate')->get_child_ids($cate_id,true)) ;die;
         $this->assign('id',$cate_id);
-
         $this->assign('info',$info);
         $this->_config_seo(C('pin_seo_config.cate'),array('cate_name'=>$info['name'],
             'seo_title'=>$info['seo_title'],
