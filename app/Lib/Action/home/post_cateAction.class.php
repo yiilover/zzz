@@ -18,7 +18,6 @@ class post_cateAction extends frontendAction {
         $alias=$_REQUEST['alias'];
         $info=D("post_cate")->where(array('alias'=>$alias))->find();
         $cate_id=$info['id'];
-print_r(D('post_cate')->get_child_ids($cate_id,true)) ;die;
         $this->assign('id',$cate_id);
         $this->assign('info',$info);
         $this->_config_seo(C('pin_seo_config.cate'),array('cate_name'=>$info['name'],
