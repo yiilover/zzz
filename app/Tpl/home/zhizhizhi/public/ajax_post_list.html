@@ -1,61 +1,95 @@
-<div class="thread_posts_list">
-<div id="J_posts_list" class="zdm-list" summary="帖子列表">
+<ul class="zdm-list">
     <volist name="post_list" id="val">
+
+
+
         <li>
-            <div class="zdm-img">
-                <a href="{:item_rewrite($val,'post')}" waencode="" target="_blank" rel="nofollow">
-                    <img src="{:attach($val['img'],'post')}" alt="{$val.title}" />
+            <div class="zdm-img fl">
+                <a href="{:item_rewrite($val,'post')}">
+                    <img src="{:attach($val['img'],'post')}" alt="{$val.title}">
                 </a>
-                <div class="zdm-digg">
-                    <a role="button" rel="nofollow" href="javascript:;" waencode="aHR0cDovL3d3dy53YWRvbmd4aS5jb20vYXBwLWluZGV4Mi1kb1VwP3RpZD0yMTYzJmFwcD16ZG0=" class="icon_read_like J_like_btn J_qlogin_trigger zdm-good" data-role="main" data-type="digg"><i></i><span class="J_like_count">{$val["rate_good"]}</span></a>
-                    <a role="button" rel="nofollow" href="javascript:;" waencode="aHR0cDovL3d3dy53YWRvbmd4aS5jb20vYXBwLWluZGV4Mi1kb0Rvd24/dGlkPTIxNjMmYXBwPXpkbQ==" class="icon_read_like J_like_btn J_qlogin_trigger zdm-bad" data-role="main" data-type="digg"><i></i><span class="J_like_count">{$val["rate_bad"]}</span></a>
+            </div>
+            <div class="zdm-info fr">
+                <div class="zdm-title">
+                    <a href="{:item_rewrite($val,'post')}">{$val.title}</a><span>{$val.prices}</span>
                 </div>
-            </div>
-            <div class="zdm-info">
-                <h3 class="zdm-title">
-                    <a href="{:item_rewrite($val,'post')}">{$val.title}</a>
-                    <span>{$val.prices}</span>
-                </h3>
-                <div class="zdm-intro">{:msubstr(strip_tags($val['info']),200)}</div>
-            </div>
-            <div class="zdm-bar">
-                <div class="zdm-func">
-                    <a href="{:post_go($val)}" waencode="" target="_blank" class="zdm-go" rel="nofollow">直达链接</a>
-                    <div class="zdm-share">
-                        <div class="bdsharebuttonbox" data-tag="share_2163">
-                            <a href="#" class="bds_more" data-cmd="more"></a>
-                            <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
-                            <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-                            <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+                <div class="zdm-content">{:msubstr(strip_tags($val['info']),200)}...</div>
+                <div class="zdm-func row">
+                    <div class="zdm-meta fl">
+                        <span>{:fdate($val['post_time'])}</span>
+                        <!--<span>类别：<volist name="val['cate_list']" id="c">-->
+                            <!--<a href="{:u('post_cate/index',array('id'=>$c['cate_id']))}" target="_blank">{$c.cate.name}</a>-->
+                            <!--<if condition="$i lt count($val['cate_list'])">,</if>-->
+                        <!--</volist></span>-->
+                    </div>
+                    <div class="zdm-go fr row">
+                        <span class="fl">
+                            <a href="/mall/{$val.mall.id}">{$val.mall.title}<i class="icon icon-arrow"></i></a>
+                        </span>
+                        <div class="fr">
+                            <tkbox id="tk_box_1" style="border: none; text-indent: 0px; display: block; width: 94px; height: 32px;"><iframe id="writeable_iframe_0" width="94" height="32" style="" border="0" frameborder="0" scrolling="no" marginwidth="0" allowtransparency="true" marginheight="0"></iframe></tkbox><a data-type="0" biz-itemid="37425392691" data-tmpl="100x32" data-tmplid="1248" data-rd="1" data-style="2" data-border="0" href="{:post_go($val)}" waencode="" target="_blank" class="link-btn" rel="nofollow" _tk_rb_index="1" _tk_old_display="inline-block" style="display: none;">直达链接</a>
                         </div>
+
                     </div>
                 </div>
-                <div class="zdm-meta">
-                    <span class="zdm-date">{:fdate($val['post_time'])}</span>
-                    <span class="zdm-cate">类别：
-                        <volist name="val['cate_list']" id="c">
-                            <a href="{:u('post_cate/index',array('id'=>$c['cate_id']))}" target="_blank">{$c.cate.name}</a>
-                            <if condition="$i lt count($val['cate_list'])">,</if>
-                        </volist>
-                    </span>
-            <span class="zdm-shop">商城：
-				<a href="http://www.wadongxi.com/mall/873">京东商城</a>
-			</span>
-                </div>
             </div>
-            <script>
-                tag = "{$val.id}";
-                Text = "{$val.title} - {$val.prices}";
-                Desc = "{:msubstr(strip_tags($val['info']),200)}";
-                Url = "{:item_rewrite($val,'post')}";
-                Pic = "{:attach($val['img'],'post')}";
-                data = {"tag":"share_"+tag,"bdText":Text,"bdDesc":Desc,"bdUrl":Url,"bdPic":Pic};
-                window._bd_share_config.share.push(data[]);
-            </script>
         </li>
+
+
+
+        <!--<li>-->
+            <!--<div class="zdm-img">-->
+                <!--<a href="{:item_rewrite($val,'post')}" waencode="" target="_blank" rel="nofollow">-->
+                    <!--<img src="{:attach($val['img'],'post')}" alt="{$val.title}" />-->
+                <!--</a>-->
+                <!--<div class="zdm-digg">-->
+                    <!--<a role="button" rel="nofollow" href="javascript:;" waencode="aHR0cDovL3d3dy53YWRvbmd4aS5jb20vYXBwLWluZGV4Mi1kb1VwP3RpZD0yMTYzJmFwcD16ZG0=" class="icon_read_like J_like_btn J_qlogin_trigger zdm-good" data-role="main" data-type="digg"><i></i><span class="J_like_count">{$val["rate_good"]}</span></a>-->
+                    <!--<a role="button" rel="nofollow" href="javascript:;" waencode="aHR0cDovL3d3dy53YWRvbmd4aS5jb20vYXBwLWluZGV4Mi1kb0Rvd24/dGlkPTIxNjMmYXBwPXpkbQ==" class="icon_read_like J_like_btn J_qlogin_trigger zdm-bad" data-role="main" data-type="digg"><i></i><span class="J_like_count">{$val["rate_bad"]}</span></a>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="zdm-info">-->
+                <!--<h3 class="zdm-title">-->
+                    <!--<a href="{:item_rewrite($val,'post')}">{$val.title}</a>-->
+                    <!--<span>{$val.prices}</span>-->
+                <!--</h3>-->
+                <!--<div class="zdm-intro">{:msubstr(strip_tags($val['info']),200)}</div>-->
+            <!--</div>-->
+            <!--<div class="zdm-bar">-->
+                <!--<div class="zdm-func">-->
+                    <!--<a href="{:post_go($val)}" waencode="" target="_blank" class="zdm-go" rel="nofollow">直达链接</a>-->
+                    <!--<div class="zdm-share">-->
+                        <!--<div class="bdsharebuttonbox" data-tag="share_2163">-->
+                            <!--<a href="#" class="bds_more" data-cmd="more"></a>-->
+                            <!--<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>-->
+                            <!--<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>-->
+                            <!--<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="zdm-meta">-->
+                    <!--<span class="zdm-date">{:fdate($val['post_time'])}</span>-->
+                    <!--<span class="zdm-cate">类别：-->
+                        <!--<volist name="val['cate_list']" id="c">-->
+                            <!--<a href="{:u('post_cate/index',array('id'=>$c['cate_id']))}" target="_blank">{$c.cate.name}</a>-->
+                            <!--<if condition="$i lt count($val['cate_list'])">,</if>-->
+                        <!--</volist>-->
+                    <!--</span>-->
+            <!--<span class="zdm-shop">商城：-->
+				<!--<a href="http://www.wadongxi.com/mall/873">京东商城</a>-->
+			<!--</span>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<script>-->
+                <!--tag = "{$val.id}";-->
+                <!--Text = "{$val.title} - {$val.prices}";-->
+                <!--Desc = "{:msubstr(strip_tags($val['info']),200)}";-->
+                <!--Url = "{:item_rewrite($val,'post')}";-->
+                <!--Pic = "{:attach($val['img'],'post')}";-->
+                <!--data = {"tag":"share_"+tag,"bdText":Text,"bdDesc":Desc,"bdUrl":Url,"bdPic":Pic};-->
+                <!--window._bd_share_config.share.push(data[]);-->
+            <!--</script>-->
+        <!--</li>-->
     </volist>
 
 
-
-</div>
-</div>
+</ul>

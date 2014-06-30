@@ -23,7 +23,7 @@ class Page {
     protected $totalRows  ;
     protected $nowPage    ;
     protected $coolPages   ;
-    protected $config  =    array('header'=>'条记录','prev'=>'<上一页','next'=>'下一页>','first'=>'第一页','last'=>'最后一页','theme'=>'%totalRow% %header% %nowPage%/%totalPage% 页 %first% %upPage% %linkPage% %downPage% %end%');
+    protected $config  =    array('header'=>'条记录','prev'=>'上一页','next'=>'下一页','first'=>'第一页','last'=>'最后一页','theme'=>'%totalRow% %header% %nowPage%/%totalPage% 页 %first% %upPage% %linkPage% %downPage% %end%');
     protected $varPage;
     public function __construct($totalRows,$listRows='',$parameter='',$url='') {
         $this->totalRows    =   $totalRows;
@@ -142,12 +142,12 @@ class Page {
         $upRow          =   $this->nowPage-1;
         $downRow        =   $this->nowPage+1;
         if ($upRow>0){
-            $upPage     =   "<a href='".str_replace('__PAGE__',$upRow,$url)."'>".$this->config['prev']."</a>";
+            $upPage     =   "<a class='pages_pre J_pages_pre' href='".str_replace('__PAGE__',$upRow,$url)."'>".$this->config['prev']."</a>";
         }else{
             $upPage     =   '';
         }
         if ($downRow <= $this->totalPages){
-            $downPage   =   "<a href='".str_replace('__PAGE__',$downRow,$url)."'>".$this->config['next']."</a>";
+            $downPage   =   "<a class='pages_next J_pages_next' href='".str_replace('__PAGE__',$downRow,$url)."'>".$this->config['next']."</a>";
         }else{
             $downPage   =   '';
         }
@@ -183,7 +183,7 @@ class Page {
                 if ($page != $this->nowPage) {
                     $linkPage .= " <a href='".str_replace('__PAGE__',$page,$url)."'>&nbsp;".$page."&nbsp;</a>";
                 } else {
-                    $linkPage .= " <span class='current'>".$page."</span>";
+                    $linkPage .= " <strong>".$page."</strong>";
                 }
             }
         }

@@ -160,15 +160,18 @@ class frontendAction extends baseAction {
         $count = $mod->where($where)->count();
         $pager = new Page($count, $list_rows);
         $pager->setConfig('theme', '%upPage% %first% %linkPage% %end% %downPage%');
-        if (MODULE_NAME == 'index'&&C('pin_index_wall')==0) {        
+        if (MODULE_NAME == 'index'&&C('pin_index_wall')==0) {
             $first_row = $pager->firstRow ;
             $items_list = $mod->relation(true)->where($where)
                 ->limit($first_row . ',' . $list_rows)->order($order)
                 ->select();
         } else {
+
             $show_sp = 0;
             $count > $s_list_rows && $show_sp = 1;
             $first_row = $pager->firstRow + $s_list_rows * ($sp - 1);
+
+
             $items_list = $mod->relation(true)->where($where)
                 ->limit($first_row . ',' . $s_list_rows)->order($order)
                 ->select();
